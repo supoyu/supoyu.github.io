@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(53, 53, 53);
+        }
+
+        .upline {
+            background-color: rgb(53, 53, 53);
+            /* display: flex; */
+            text-align: right;
+            font-size: 0px;
+
+        }
+
+        .upline a {
+            padding: 8px 10px;
+            display: inline-block;
+            line-height: 40px;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-block;
+            color: white;
+
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* .upline > .botton{
+            text-align: right;
+            display: flex;
+        } */
+        /* .uplineicon{
+            display: inline-block;
+            width: 3%;
+            padding: 10px;            
+        } */
+
+        .button {
+            height: 30px;
+            width: 30px;
+            margin: 5px 20px 0 0;
+            border-radius: 50%;
+            padding: px;
+            background-color: rgb(119, 118, 118);
+            border: 0;
+        }
+
+        .button:hover {
+            cursor: pointer;
+            background-color: aliceblue;
+            opacity: 0.5;
+        }
+
+        .logo {
+            /* height: 150px; */
+            width: 50%;
+            /* border: 1px solid red; */
+            margin: 120px auto 0;
+            text-align: center;
+        }
+
+        .logo img {
+            width: 80%;
+            margin: auto;
+        }
+
+        .search {
+            display: flex;
+            height: 40px;
+            width: 600px;
+            margin: auto;
+            background-color: white;
+            border-radius: 20px;
+
+        }
+
+        input {
+            background-color: white;
+            font-size: 20px;
+            width: 550px;
+            border: none;
+            outline: none;
+
+        }
+
+        .searchlogo {
+
+            width: 20px;
+            padding: 10px;
+        }
+
+        .miclogo {
+            width: 20px;
+            padding: 6px 12px;
+        }
+
+        .itemgroup {
+            /* border: 1px solid red; */
+            width: 500px;
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: center; */
+            padding: 5px;
+            margin: auto;
+
+
+        }
+
+        .item {
+            display: inline-block;
+            width: 110px;
+            height: 150px;
+            /* border: 1px solid red; */
+            margin: auto;
+            text-align: center;
+        }
+        .item:hover{
+            background-color: rgb(119, 118, 118);
+        }
+
+        .iconimage{
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            margin: 50px 0;
+            position: relative;
+
+        }
+        .iconimage img {
+            width: 30px;
+            /* display: block; */
+            background-color: rgb(80, 80, 80);
+            border-radius: 50px;
+
+        }
+        .item p{
+            position: relative;
+            bottom: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="upline">
+
+            <a href="https://mail.google.com/mail/?tab=rm&ogbl">Gmail</a>
+            <a href="https://www.google.com.tw/imghp?hl=zh-TW&tab=ri&ogbl">圖片</a>
+            <button class="button"><svg class="uplineicon" focusable="false" viewBox="0 0 24 24">
+                    <path
+                        d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z">
+                    </path>
+                </svg></button>
+
+
+        </div>
+        <div class="logo">
+            <img src="./google.png" alt="GOOGLE">
+        </div>
+        <div class="search">
+            <img class="searchlogo" src="./search.jpg" alt="searchlogo">
+            <input type="search" placeholder="搜尋 Google 或輸入網址">
+            <a href="#">
+                <img class="miclogo" src="./mic.jpg" alt="miclogo"></a>
+        </div>
+        <div class="itemgroup">
+            <div class="item">
+                <a href="#">
+                    <div  class="iconimage">
+                        <img  src="./youtube.png" alt="youtube">
+                    </div>
+                </a>
+                <p>Youtube</p>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <div class="iconimage">
+                        <img  src="./plus.png" alt="新增捷徑">              
+                    </div>
+                </a>
+                <p>新增捷徑</p>
+            </div>
+            <!-- <div class="item">
+                <a href="#">
+                    <div class="iconimage">
+                        <img src="./plus.png" alt="新增捷徑">
+                        
+                    </div>
+                </a>
+                <p>新增捷徑</p>
+            </div> -->
+        </div>
+    </div>
+</body>
+
+</html>
