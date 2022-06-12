@@ -33,7 +33,7 @@
 
         }
 
-        a:hover {
+        .upline a:hover {
             text-decoration: underline;
         }
 
@@ -119,35 +119,65 @@
         }
 
         .item {
-            display: inline-block;
+            display: block;
             width: 110px;
             height: 150px;
             /* border: 1px solid red; */
             margin: auto;
             text-align: center;
+
+
         }
-        .item:hover{
+         .item:hover{
             background-color: rgb(119, 118, 118);
+            border-radius: 20px;
+
+
+        } 
+
+        .item a{
+            text-decoration: none;
         }
 
         .iconimage{
             text-align: center;
             height: 100%;
             width: 100%;
-            margin: 50px 0;
+            margin: 0px 0;
             position: relative;
+            /* background-color: green; */
 
         }
         .iconimage img {
             width: 30px;
             /* display: block; */
-            background-color: rgb(80, 80, 80);
-            border-radius: 50px;
+            /* background-color: rgb(80, 80, 80); */
+            position: relative;
+            top: 58px;
+            /* border-radius: 50px; */
 
         }
         .item p{
             position: relative;
-            bottom: 150px;
+            bottom: 90px;
+            color: white;
+
+        }
+        .iconrenge{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .circle{
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            opacity: 0.2;
+            position: relative;
+            bottom: 104px;
+            right: -29px;
+            border-radius: 50px;
+
         }
     </style>
 </head>
@@ -177,20 +207,24 @@
         </div>
         <div class="itemgroup">
             <div class="item">
-                <a href="#">
+                <a href="#" class="iconrenge">
                     <div  class="iconimage">
                         <img  src="./youtube.png" alt="youtube">
                     </div>
+                    <div class="circle"></div>
+                    <p>Youtube</p>
                 </a>
-                <p>Youtube</p>
+                
             </div>
             <div class="item">
-                <a href="#">
+                <a href="#" class="iconrenge">
                     <div class="iconimage">
                         <img  src="./plus.png" alt="新增捷徑">              
                     </div>
+                    <div class="circle"></div>
+                    <p>新增捷徑</p>
                 </a>
-                <p>新增捷徑</p>
+                
             </div>
             <!-- <div class="item">
                 <a href="#">
