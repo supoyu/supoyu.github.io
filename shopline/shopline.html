@@ -19,6 +19,7 @@
 
         a {
             text-decoration: none;
+
         }
 
         .title {
@@ -36,12 +37,13 @@
         }
 
         .itemgroup :nth-child(even) {
-            flex-flow: row-reverse;
+            flex-flow: row-reverse wrap;
         }
 
         .item {
             display: flex;
-            height: 600px;
+            flex-wrap: wrap;
+            /* height: 600px; */
             /* border: 1px solid red; */
             border-top: 1px solid #ccc;
             margin: 0 10%;
@@ -54,17 +56,21 @@
 
         .halfword {
             width: 50%;
+            min-width: 550px;
             margin: auto;
         }
 
         .halfimg {
             width: 50%;
+            height: 100%;
+            min-width: 550px;
             display: flex;
+            margin: auto;
         }
 
         .halfimg img {
-            margin: auto;
-            width: 80%;
+            margin: 40px 0;
+            width: 100%;
 
         }
 
@@ -82,6 +88,27 @@
         .url {
             /* display: inline; */
             width: 50%;
+            color: blue;
+        }
+
+        .url a p {
+            display: inline;
+            color: blue;
+        }
+        
+
+        .url a:hover .longline {
+            /* transition-duration: 2S; */
+
+            transform: scaleX(1.5);
+            background-color: #ccc;
+        }
+
+        .url a {
+            position: relative;
+            
+            display: flex;
+
         }
 
         .moresever {
@@ -89,10 +116,11 @@
             background-color: #ccc;
             text-align: center;
             margin: 20px 0 0 0;
-            padding:20px;
+            padding: 20px;
             /* border: 1px solid red; */
         }
-/* 這裡有問題  我的文字不做padding會顯示在最上面 */
+
+        /* 這裡有問題  我的文字不做padding會顯示在最上面 */
         .severtitle {
             font-size: 25px;
             position: relative;
@@ -106,28 +134,33 @@
             margin: 0 10%;
 
         }
-        .servelist li{
+
+        .servelist li {
             display: flex;
 
         }
-        .serveitem{
+
+        .serveitem {
             width: 30%;
+            min-width: 300px;
             display: flex;
             flex-wrap: wrap;
             margin: 20px 5px;
             /* border: 1px solid red; */
 
         }
-        .serveimg{
+
+        .serveimg {
             width: 120px;
             height: 120px;
             border-radius: 50%;
             /* border: 1px solid red; */
             background-color: #fff;
             display: flex;
-                margin: auto;
+            margin: auto;
         }
-        .serveimg img{
+
+        .serveimg img {
             width: 60%;
             height: 60%;
             margin: auto;
@@ -136,16 +169,58 @@
 
 
         }
-        .severinfo p{
+
+        .severinfo p {
             line-height: 1.5;
             letter-spacing: -1px;
             text-align: left;
         }
+
         /* .severinfo{
             border: 1px solid red;
 
-        } */
-        
+        } */    
+
+        .box{
+            position: relative;
+            display: flex;
+            width: 80px;
+            height: 40px;
+            align-items: center;
+            justify-content: left;
+        }
+        .icon:hover{
+            width: 60px;
+        }
+        .icon{
+            position: relative;
+            width: 30px;
+            height: 3px;
+            background-color: blue;
+            top: 12px;
+            transition-duration: 1.5s;
+
+        }
+        .icon::before , .icon::after{
+            display: inline-block;
+            content :"";
+            width: 15px;
+            height: 3px;
+            background-color: blue;
+        }
+        .icon::before{
+            transform: rotate(45deg);
+            position: absolute;
+            right: -2px;
+            bottom: 5px;
+        }
+        .icon::after{
+            transform: rotate(135deg);
+            position: absolute;
+            right: -2px;
+            bottom: -5px;
+        }
+
     </style>
 </head>
 
@@ -194,7 +269,9 @@
                 <div class="url">
                     <a href="#">
                         <p>看看開店祕技</p>
-                    </a>
+                        <div class="box">
+                            <div class="icon"></div>
+                        </div>                    </a>
                 </div>
             </div>
             <div class="halfimg"><img src="./first.webp"></div>
@@ -234,7 +311,9 @@
                 <div class="url">
                     <a href="#">
                         <p>了解更多金物流</p>
-                    </a>
+                        <div class="box">
+                            <div class="icon"></div>
+                        </div>                    </a>
                 </div>
             </div>
             <div class="halfimg"><img src="./second.png"></div>
@@ -273,6 +352,9 @@
                 <div class="url">
                     <a href="#">
                         <p>看更多優惠模組</p>
+                        <div class="box">
+                            <div class="icon"></div>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -311,6 +393,10 @@
                 <div class="url">
                     <a href="#">
                         <p>了解更多全通路整合</p>
+                        <div class="box">
+                            <div class="icon"></div>
+                        </div>
+
                     </a>
                 </div>
             </div>
