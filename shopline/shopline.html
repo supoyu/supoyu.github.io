@@ -47,7 +47,7 @@
             /* height: 600px; */
             /* border: 1px solid red; */
             border-top: 1px solid #ccc;
-            margin: 20px 10%;
+            margin: 20px 15%;
             padding: 20px;
         }
 
@@ -92,14 +92,16 @@
         .url {
             /* display: inline-block; */
             display: flex;
-            width: 50%;
+            /* width: 50%; */
             color: blue;
             justify-content: left;
         }
 
         .url a p {
-            display: inline;
+            /* display: inline; */
             color: blue;
+            display: block;
+            width: auto;
         }
         
 
@@ -112,7 +114,6 @@
 
         .url a {
             position: relative;
-            
             display: flex;
 
         }
@@ -180,6 +181,7 @@
             line-height: 1.5;
             letter-spacing: -1px;
             text-align: left;
+            padding: 0px 30px;
         }
 
         /* .severinfo{
@@ -190,11 +192,12 @@
         .box{
             position: relative;
             display: flex;
-            width: 60px;
-            height: 40px;
+
+            height: 100%;
             align-items: center;
             justify-content: left;
         }
+
         a:hover .icon{
             width: 60px;
         }
@@ -203,9 +206,10 @@
             width: 30px;
             height: 2px;
             background-color: blue;
-            top: 12px;
+            /* top: 6px; */
             transition-duration: .5s;
             display: inline;
+
 
         }
         .icon::before , .icon::after{
