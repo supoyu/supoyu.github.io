@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        a {
+            /* text-decoration: none; */
+            color: black;
+        }
+
+        .header {
+            display: flex;
+            width: 98%;
+            height: 50px;
+            border-bottom: 1px solid gray;
+            padding: 5px 10px;
+            justify-content: space-around;
+            /* border: 1px solid red; */
+
+        }
+
+        .middle {
+            display: flex;
+            text-align: center;
+            margin: auto;
+        }
+
+        .headerinfo {
+            /* width: 50%; */
+            display: flex;
+            /* text-align: center; */
+            align-items: center;
+            text-align: center;
+
+        }
+
+        .headerinfo-tel {
+            display: inline-block;
+            border-right: 1px solid gray;
+            text-align: center;
+            padding: 0 10px 0 0;
+        }
+
+        .headerinfo-tel p {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .headerinfo-tel a {
+            font-weight: bolder;
+        }
+
+        .headerinfo-time {
+            padding: 0 0 0 10px;
+        }
+
+        .headerothers {
+            display: flex;
+            /* width: 50%; */
+            align-items: center;
+            padding: 0 80px 0 0;
+            /* text-align: center; */
+            /* border: 1px solid red; */
+        }
+
+        .headerothers ul li {
+            display: inline-block;
+
+        }
+
+        button {
+            border: 0;
+            background-color: white;
+            display: inline-block;
+            padding: 15px 20px;
+            /* border: 1px red solid; */
+        }
+
+        .headerothers-items {
+            border-right: 1px gray solid;
+        }
+
+        .headerothers-items:hover {
+            border-bottom: 4px pink solid;
+            margin-bottom: -4px;
+
+        }
+
+        .headerothers-items:hover button i,
+        .headerothers-items:hover .cart {
+            cursor: pointer;
+        }
+
+        .cart {
+            display: flex;
+            position: relative;
+        }
+
+        .zeroicon {
+            width: 18px;
+            height: 18px;
+            color: white;
+            background-color: pink;
+            border-radius: 50%;
+            position: relative;
+            right: 3px;
+            bottom: 7px;
+        }
+
+        .searchblock {
+            width: 150px;
+            border: none;
+            outline: none;
+            font-size: 20px;
+            padding: 0 15px 0 25px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            padding: 0 0 0 5px;
+            border-right: 1px gray solid;
+
+        }
+
+        .search i:hover {
+            color: pink;
+        }
+
+        .search i {
+            display: block;
+            font-size: 25px;
+            padding: 5px;
+        }
+
+        .headerothers-items a {
+            display: block;
+            padding: 15px 20px;
+        }
+
+        .header a {
+            text-decoration: none;
+        }
+
+        .title {
+            /* height: 100px; */
+            padding: 15px 200px 15px 170px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .titleimg {
+            width: 125px;
+            padding: 0px;
+
+        }
+
+        .titleimg img {
+            /* align-items: flex-start; */
+            width: 100%;
+            margin: auto;
+        }
+
+        .communitylist {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .communitylist li {
+            padding: 10px;
+
+
+        }
+
+        .communitylist a {
+            color: rgba(110, 110, 110, 0.8);
+        }
+
+        .communitylist a:hover {
+            color: black;
+        }
+
+        .titlelist {
+            display: flex;
+
+        }
+
+        .titlelist li {
+            padding: 20px;
+            display: flex;
+        }
+
+        .titleitem a {
+            text-decoration: none;
+            font-weight: bolder;
+            display: inline-block;
+
+        }
+
+        .titleitem p {
+            display: inline
+        }
+
+        .titlelist :nth-child(1) a {
+            color: pink;
+        }
+
+        .titleitem a:hover p{
+            color: pink;
+        }
+        .backgroundimg{
+            background-image: url(./slider1.webp);
+            height: 100%;
+            width: 100%;
+            position: relative;
+            left: 10%;
+        }
+        .background{
+position: relative;
+            height: 650px
+        }
+
+
+
+    </style>
+    <script src="https://kit.fontawesome.com/165499f8b6.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="headerinfo">
+            <div class="middle">
+                <div class="headerinfo-tel">
+                    <p>Call us: </p><a href="#">+3(800) 2345-6789</a>
+                </div>
+                <div class="headerinfo-time">
+                    <p> 7 Days a week from 9:00 am to 7:00 pm</p>
+                </div>
+            </div>
+        </div>
+        <div class="headerothers">
+            <div class="middle">
+                <ul class="headerothers-list">
+                    <li class="headerothers-items">
+                        <button class="moneyicon">USD, $
+                            <i class="fa-solid fa-angle-down"></i> </button>
+
+                    </li>
+                    <li class="headerothers-items">
+                        <button class="cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div class="zeroicon">
+                                <p> 0</p>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="headerothers-items">
+                        <a href="#">Login</a>
+                    </li>
+                </ul>
+                <div class="search">
+                    <input type="search" class="searchblock" placeholder="Search...">
+                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="title">
+        <div class="titleimg">
+            <h1>
+                <img src="./logo.webp" alt="Vargated">
+            </h1>
+        </div>
+        <ul class="titlelist">
+            <li class="titleitem">
+                <a href="#">
+                    <p> HOME</p>
+                </a>
+            </li>
+            <li class="titleitem">
+                <a href="#">
+                    <p>ABOUT</p>
+                </a>
+            </li>
+            <li class="titleitem">
+                <a href="#">
+                    <p>FEATURES</p><i class="fa-solid fa-angle-down"></i>
+                </a>
+            </li>
+            <li class="titleitem">
+                <a href="#">
+                    <p>BLOG</p><i class="fa-solid fa-angle-down"></i>
+                </a>
+            </li>
+            <li class="titleitem">
+                <a href="#">
+                    <p>SHOP</p><i class="fa-solid fa-angle-down"></i>
+                </a>
+            </li>
+            <li class="titleitem">
+                <a href="#">
+                    <p>CONTACTS</p>
+                </a>
+            </li>
+        </ul>
+        <ul class="communitylist">
+            <li class="communityitem"><a href="#"><i class="fa-brands fa-facebook-f"></i>
+                </a></li>
+            <li class="communityitem"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+            <li class="communityitem"><a href="#"><i class="fa-brands fa-google"></i></a></li>
+            <li class="communityitem"><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+        </ul>
+    </div>
+    <div class="background">
+        <div class="backgroundimg"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>
