@@ -50,6 +50,7 @@
             border-top: 1px solid #ccc;
             margin: 40px 10%;
             padding: 30px 5px;
+            position: relative;
             justify-content: flex-start;
             text-align: left;
         }
@@ -70,12 +71,12 @@
             padding: auto;
         }
 
-        .halfword ul{
-            display: inline-flex;
-            width: 90%;
+        .halfword ul {
+            /* display: inline-flex; */
+            /* width: 90%; */
+            padding: 0;
+            margin: 0;
 
-            margin: 0 0 0 10px;
-            
         }
 
         .halfimg {
@@ -97,22 +98,26 @@
         }
 
         .list {
-            width: 100%;
+            /* width: 90%; */
             display: flex;
             flex-wrap: wrap;
-            padding: 0 0 0 20px;
+            padding: 0;
+            margin: 0;
+            left: -10px;
         }
 
-        
-        
-        .list li{
+
+
+        .list li {
             display: inline;
             position: relative;
-            left: -20px;
+            margin: 0;
+            padding: 0;
         }
 
         .listitem {
             width: 50%;
+            display: inline;
         }
 
         .url {
@@ -129,7 +134,7 @@
             display: block;
             width: auto;
         }
-        
+
 
         /* .url a:hover .longline {
             transition-duration: 2S;
@@ -213,9 +218,9 @@
         /* .severinfo{
             border: 1px solid red;
 
-        } */    
+        } */
 
-        .arrow{
+        .arrow {
             position: relative;
             display: flex;
 
@@ -224,10 +229,11 @@
             justify-content: left;
         }
 
-        a:hover .icon{
+        a:hover .icon {
             width: 60px;
         }
-        .icon{
+
+        .icon {
             position: relative;
             width: 30px;
             height: 2px;
@@ -238,25 +244,28 @@
 
 
         }
-        .icon::before , .icon::after{
+
+        .icon::before,
+        .icon::after {
             display: inline-block;
-            content :"";
+            content: "";
             width: 10px;
             height: 2px;
             background-color: blue;
             position: absolute;
         }
-        .icon::before{
+
+        .icon::before {
             transform: rotate(45deg);
             right: -2px;
             bottom: 3px;
         }
-        .icon::after{
+
+        .icon::after {
             transform: rotate(135deg);
             right: -2px;
             bottom: -3px;
         }
-
     </style>
 </head>
 
@@ -304,7 +313,8 @@
                         <p>看看開店祕技</p>
                         <div class="arrow">
                             <div class="icon"></div>
-                        </div>                    </a>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="halfimg"><img src="./first.webp"></div>
@@ -345,7 +355,8 @@
                         <p>了解更多金物流</p>
                         <div class="arrow">
                             <div class="icon"></div>
-                        </div>                    </a>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="halfimg"><img src="./second.png"></div>
