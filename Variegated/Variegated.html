@@ -294,23 +294,26 @@
             font-weight: bolder;
             letter-spacing: 2px;
         }
-        .backgroundpagelist{
+
+        .backgroundpagelist {
             display: inline-block;
             position: absolute;
             right: 0;
         }
-        .backgroundpagelist li{
+
+        .backgroundpagelist li {
             font-size: 20px;
             text-align: right;
             /* text-decoration: underline; */
             line-height: 60px;
 
         }
-        .backgroundpagelist li:nth-child(1){
+
+        .backgroundpagelist li:nth-child(1) {
             text-decoration: underline;
         }
 
-        .backgroundpagelist li:hover{
+        .backgroundpagelist li:hover {
             text-decoration: underline;
             transition-duration: .5s;
         }
@@ -542,11 +545,11 @@
         }
 
         .accessoryhoverspace {
-            position: relative;
+            position: absolute;
             width: 80%;
             height: 3px;
             background-color: white;
-            top: 80px;
+            top: 100px;
             display: none;
         }
 
@@ -633,10 +636,30 @@
             filter: brightness(70%);
         }
 
+        .model:hover .modelimg {
+            transition-duration: 1s;
+            display: none;
+        }
+
+        .model:hover .modelhoverimg {
+            transition-duration: .7s;
+            filter: brightness(70%);
+        }
+
+        /* .model:hover {
+            transition-duration: .7s;
+            filter: brightness(70%);
+        } */
+        /* .model:hover img {
+            transition-duration: .7s;
+            filter: brightness(70%);
+        } */
+
         .modelicon i {
             flex-direction: column-reverse;
             flex-wrap: wrap-reverse;
             color: white;
+
             /* background-color: #000; */
         }
 
@@ -645,7 +668,9 @@
             position: absolute;
             /* bottom: 130px;
             right: -70px; */
-            transform: translate(300px, -40px);
+            /* transform: translate(300px, -40px); */
+            right: -100px;
+            bottom: 180px;
 
         }
 
@@ -660,14 +685,22 @@
             position: absolute;
             bottom: 130px;
             right: 0px; */
+            position: absolute;
+            right: 00px;
+            bottom: 180px;
             transition-duration: .5s;
-            transform: translate(190px, -40px);
+            /* transform: translate(190px, -40px); */
+            z-index: 50;
+        }
+
+        .modelicon a:hover {
+            color: black;
         }
 
         .modeloption {
             transform: translate(-600px, -60px);
             background-color: black;
-
+            color: white;
             padding: 15px;
             display: inline-block;
         }
@@ -675,6 +708,7 @@
         .modeloption a {
             color: white;
             text-decoration: none;
+            z-index: 50;
         }
 
         .model:hover .modeloption {
@@ -694,6 +728,7 @@
 
         .modeloption:hover {
             background-color: pink;
+            color: white;
         }
 
         .backgroundimg-deals {
@@ -720,8 +755,11 @@
         .dealsitem {
             display: inline-block;
             background-color: #000;
+            color: white;
             padding: 15px 30px;
+            text-decoration: none;
         }
+
 
         .dealsitem:hover {
             transition-duration: .5s;
@@ -862,37 +900,44 @@
             width: 200px;
             line-height: 40px;
         }
-        .severtitle{
+
+        .severtitle {
             font-size: 20px;
             padding: 10px 0;
         }
+
         .sever li a {
             color: rgb(195, 195, 195);
             text-decoration: none;
-            
+
         }
+
         .sever li a:hover {
             color: pink;
 
-            
+
         }
-        .severinfo{
+
+        .severinfo {
             font-size: 16px;
             line-height: 20px;
         }
-        .underline{
+
+        .underline {
             background-color: #000;
             color: white;
             display: flex;
             text-align: center;
             justify-content: space-around;
-            border-top: 1px rgba(128, 128, 128, 0.412) solid ;
+            border-top: 1px rgba(128, 128, 128, 0.412) solid;
             padding: 20px;
         }
-        .underline .icon ul li i{
+
+        .underline .icon ul li i {
             color: white;
         }
-        .underline .icon ul li i:hover{
+
+        .underline .icon ul li i:hover {
             color: pink;
             transition-duration: .5s;
         }
@@ -1137,7 +1182,8 @@
                 <a href="#" class="modelpos">
                     <div class="modelhoverimg"></div>
 
-                    <img src="./model2.jpg" alt="">
+                    <img src="./model2.jpg" alt="" class="modelimg">
+                    <img src="./model2-2.jpg" alt="" class="modelhoverimg">
                     <div class="modelicon">
                         <a href="#"><i class="fa-solid fa-heart"></i></a>
                         <a href="#"><i class="fa-solid fa-scale-balanced"></i></i></a>
@@ -1182,7 +1228,8 @@
                 <a href="#" class="modelpos">
                     <div class="modelhoverimg"></div>
 
-                    <img src="./model4.jpg" alt="">
+                    <img src="./model4.jpg" alt="" class="modelimg">
+                    <img src="./model4-2.jpg" alt="" class="modelhoverimg">
                     <div class="modelicon">
                         <a href="#"><i class="fa-solid fa-heart"></i></a>
                         <a href="#"><i class="fa-solid fa-scale-balanced"></i></i></a>
@@ -1205,7 +1252,8 @@
             <div class="model">
                 <a href="#" class="modelpos">
                     <div class="modelhoverimg"></div>
-                    <img src="./model5.jpg" alt="">
+                    <img src="./model5.jpg" alt="" class="modelimg">
+                    <img src="./model5-2.jpg" alt="" class="modelhoverimg">
                     <div class="modelicon">
                         <a href="#"><i class="fa-solid fa-heart"></i></a>
                         <a href="#"><i class="fa-solid fa-scale-balanced"></i></i></a>
@@ -1231,7 +1279,8 @@
                 <a href="#" class="modelpos">
                     <div class="modelhoverimg"></div>
 
-                    <img src="./model6.jpg" alt="">
+                    <img src="./model6.jpg" alt="" class="modelimg">
+                    <img src="./model6-2.jpg" alt="" class="modelhoverimg">
                     <div class="modelicon">
                         <a href="#"><i class="fa-solid fa-heart"></i></a>
                         <a href="#"><i class="fa-solid fa-scale-balanced"></i></i></a>
@@ -1255,7 +1304,8 @@
                 <a href="#" class="modelpos">
                     <div class="modelhoverimg"></div>
 
-                    <img src="./model7.jpg" alt="">
+                    <img src="./model7.jpg" alt="" class="modelimg">
+                    <img src="./model7-2.jpg" alt="" class="modelhoverimg">
                     <div class="modelicon">
                         <a href="#"><i class="fa-solid fa-heart"></i></a>
                         <a href="#"><i class="fa-solid fa-scale-balanced"></i></i></a>
@@ -1301,7 +1351,7 @@
         <div class="dealydeals">DEALY DEALS</div>
         <div class="dealsinfo">MODERN CASUAL <br>
             ESSENTIALS</div>
-        <div class="dealsitem">SHOP NOW</div>
+        <a href="#" class="dealsitem">SHOP NOW</a>
     </div>
     <div class="blogblock">
         <div class="blogtitle">LATEST FROM BLOG</div>
@@ -1373,7 +1423,7 @@
                     highlight one’s individuality! We are waiting right for you!</p>
             </ul>
         </div>
-        
+
     </div>
     <div class="underline">
         <div class="resever">© 2022 Variegated. All Rights Reserved.</div>
