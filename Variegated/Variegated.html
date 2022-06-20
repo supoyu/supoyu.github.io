@@ -294,6 +294,26 @@
             font-weight: bolder;
             letter-spacing: 2px;
         }
+        .backgroundpagelist{
+            display: inline-block;
+            position: absolute;
+            right: 0;
+        }
+        .backgroundpagelist li{
+            font-size: 20px;
+            text-align: right;
+            /* text-decoration: underline; */
+            line-height: 60px;
+
+        }
+        .backgroundpagelist li:nth-child(1){
+            text-decoration: underline;
+        }
+
+        .backgroundpagelist li:hover{
+            text-decoration: underline;
+            transition-duration: .5s;
+        }
 
         .Discountlist {
             display: flex;
@@ -984,6 +1004,11 @@
                         <b> Read More</b></a>
                 </div>
             </div>
+            <ul class="backgroundpagelist">
+                <li class="backgroundpage">01</li>
+                <li class="backgroundpage">02</li>
+                <li class="backgroundpage">03</li>
+            </ul>
         </div>
         <ul class="Discountlist">
             <li class="Discountitem">
