@@ -604,13 +604,22 @@
 
         .modelinfo-show {
             color: #ccc;
-            padding: 15px 0;
+            margin:  15px 0;
             font-size: 15px;
+            display: block;
+            height: 15px;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .modelinfo-name {
-            padding-bottom: 10px;
+            margin-bottom: 10px;
             font-size: 18px;
+            height: 18px;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .modelonfo-money {
@@ -687,14 +696,18 @@
             right: 0px; */
             position: absolute;
             right: 00px;
-            bottom: 180px;
+            bottom: 140px;
             transition-duration: .5s;
             /* transform: translate(190px, -40px); */
             z-index: 50;
         }
 
-        .modelicon a:hover {
+        .modelicon a:hover i{
             color: black;
+        }
+        .modeloptionurl{
+            position: relative;
+
         }
 
         .modeloption {
@@ -703,6 +716,9 @@
             color: white;
             padding: 15px;
             display: inline-block;
+            /* position: relative;
+            top: 0;
+            left: 0; */
         }
 
         .modeloption a {
@@ -873,6 +889,10 @@
             font-size: 15px;
             padding: 15px 25px;
 
+        }
+        .emailenter:hover{
+            background-color: pink;
+            transition: .7s;
         }
 
         .instagram {
