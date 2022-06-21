@@ -18,10 +18,11 @@
         .advantage {
             display: flex;
             flex-wrap: wrap;
-    
+
             width: 100%;
             max-width: 500px;
             margin: 30px auto;
+            position: relative;
         }
 
         .advantagetitle {
@@ -29,6 +30,8 @@
             flex-wrap: wrap;
             width: 100%;
             max-width: 400px;
+            z-index: 1;
+
         }
 
         .advantagetitle-name {
@@ -59,12 +62,16 @@
             background-color: black;
             color: white;
             padding: 15px 15px;
+            height: 180px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
         .advantagetitle-info h3 {
             font-size: 24px;
             line-height: 28px;
-            padding: 10px 0 ;
+            padding: 10px 0;
         }
 
         .advantagetitle-info p {
@@ -75,12 +82,15 @@
         .advantageytblock {
             width: 100%;
             /* max-width: 500px; */
-            position: relative;
+            position: absolute;
+            right: 50px;
+
+            top: 320px;
             /* overflow: hidden; */
         }
 
         .advantageytshadow {
-            background-color: rgba(204, 204, 204, 0.682);
+            background-color: rgba(204, 204, 204, 0.34);
             position: absolute;
             z-index: -1;
             width: 400px;
@@ -88,6 +98,10 @@
             right: 15px;
             top: -60px;
 
+        }
+
+        .advantageyt {
+            position: relative;
         }
 
         .advantageyt img {
@@ -100,7 +114,6 @@
         .advantageyt i {
             color: red;
             position: absolute;
-            right: -20px;
             top: 40%;
             right: 40%;
 
@@ -116,18 +129,20 @@
         .advantageinfolist {
             padding: 10px;
         }
-        .advantageinfo-title{
+
+        .advantageinfo-title {
             display: flex;
             padding: 10px;
 
         }
+
         .advantageinfo-title h3 {
             font-size: 24px;
             color: red;
             padding: 10px;
         }
 
-        .advantageinfo-redline{
+        .advantageinfo-redline {
             flex-grow: 1;
             background: red;
             height: 3px;
@@ -138,8 +153,11 @@
         }
 
         .advantageinfo {
-            background-color: rgba(204, 204, 204, 0.319);
+            background-color: rgb(232, 232, 232);
             margin-left: 15px;
+            z-index: 1;
+            margin-top: 300px;
+
         }
 
         .advantageinfoitem {
@@ -160,9 +178,10 @@
             font-size: 18px;
             line-height: 23px;
             padding-left: 40px;
-              position: relative;
+            position: relative;
         }
-        .advantageinfo-info::before{
+
+        .advantageinfo-info::before {
             content: "";
             width: 6px;
             height: 6px;
@@ -174,6 +193,60 @@
             margin-top: -5px;
             border-radius: 50%;
 
+        }
+
+        @media screen and (min-width:768px) {
+
+            .advantage {
+                max-width: 1100px;
+            }
+
+            .advantageytshadow {
+                width: 550px;
+                top: -220px;
+
+            }
+
+            .advantageyt img {
+                max-width: 800px;
+                position: absolute;
+
+                z-index: 0;
+                right: 100px;
+                top: -162px;
+                vertical-align: top;
+
+            }
+
+            .advantageyt i {
+                right: 80px;
+                top: 50px;
+            }
+
+            .advantageinfo {
+                max-width: 800px;
+                margin-top: 300px;
+            }
+
+            .advantage:nth-child(even) {
+                flex-flow: wrap row-reverse;
+            }
+
+            .advantageytblock:nth-child(even) {
+                right: 150px;
+            }
+
+            .advantage:nth-child(even) .advantageytshadow {
+                height: 400px;
+            }
+
+            .advantage:nth-child(even) .fa-brands {
+
+                top: 50px;
+                left: 180px;
+
+  
+            }
         }
     </style>
     <script src="https://kit.fontawesome.com/165499f8b6.js" crossorigin="anonymous"></script>
@@ -228,7 +301,7 @@
             </div>
         </div>
         <div class="advantage">
-                       <div class="advantagetitle">
+            <div class="advantagetitle">
                 <div class="advantagetitle-name">
                     <div class="advantagetitle-name-number">02</div>
                     <h2> 安全守護</h2>
@@ -264,14 +337,14 @@
                         <div class="advantageinfo-info">堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。
                         </div>
                     </div>
-                    
+
 
                 </div>
 
             </div>
         </div>
         <div class="advantage">
-                       <div class="advantagetitle">
+            <div class="advantagetitle">
                 <div class="advantagetitle-name">
                     <div class="advantagetitle-name-number">03</div>
                     <h2> 乘坐舒適</h2>
@@ -317,7 +390,7 @@
             </div>
         </div>
         <div class="advantage">
-                       <div class="advantagetitle">
+            <div class="advantagetitle">
                 <div class="advantagetitle-name">
                     <div class="advantagetitle-name-number">04</div>
                     <h2> 以人為本</h2>
@@ -363,7 +436,7 @@
             </div>
         </div>
         <div class="advantage">
-                       <div class="advantagetitle">
+            <div class="advantagetitle">
                 <div class="advantagetitle-name">
                     <div class="advantagetitle-name-number">05</div>
                     <h2> 引以為傲</h2>
