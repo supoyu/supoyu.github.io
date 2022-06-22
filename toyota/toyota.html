@@ -81,9 +81,9 @@
 
         .advantageytblock {
             width: 100%;
-            /* max-width: 500px; */
+            display: block;
             position: absolute;
-            right: 50px;
+            right: 0px;
 
             top: 320px;
             /* overflow: hidden; */
@@ -101,13 +101,13 @@
         }
 
         .advantageyt {
-            position: relative;
+            /* position: relative; */
         }
 
         .advantageyt img {
             width: 100%;
 
-            max-width: 500px;
+            /* max-width: 500px; */
             vertical-align: top;
         }
 
@@ -124,6 +124,7 @@
         .advantageytimg {
             position: relative;
             padding: 0 0 0 15px;
+
         }
 
         .advantageinfolist {
@@ -203,29 +204,34 @@
 
             .advantageytshadow {
                 width: 550px;
-                top: -220px;
+                top: -250px;
+                right: -120px;
 
             }
+            .advantageytblock {
+                right: -0px;
+            } 
 
             .advantageyt img {
                 max-width: 800px;
                 position: absolute;
-
+                right: 0px;
+                top: -210px;
                 z-index: 0;
-                right: 100px;
-                top: -162px;
+
+
                 vertical-align: top;
 
             }
 
             .advantageyt i {
-                right: 80px;
-                top: 50px;
+                right: -20px;
+                top: 30px;
             }
 
             .advantageinfo {
                 max-width: 800px;
-                margin-top: 300px;
+                margin-top: 260px;
             }
 
             .advantage:nth-child(even) {
@@ -238,15 +244,18 @@
 
             .advantage:nth-child(even) .advantageytshadow {
                 height: 400px;
+                right: 30px;
             }
 
-            .advantage:nth-child(even) .fa-brands {
+            .advantage:nth-child(even) i {
 
-                top: 50px;
+                top: 30px;
                 left: 180px;
-
-  
             }
+            .advantage:nth-child(even) .advantageyt img {
+                right: 95px;
+            }
+
         }
     </style>
     <script src="https://kit.fontawesome.com/165499f8b6.js" crossorigin="anonymous"></script>
