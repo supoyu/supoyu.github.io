@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            max-width: 960px;
+            margin-left: 10%;
+            margin-right: 10%;
+
+
+        }
+        .item {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        .item .A {
+            width: 33.333333%;
+            background-color: #f00;
+            color: #fff;
+            position: relative;
+
+        }
+        .item .A h2{font-size: 42px;}
+        .item:nth-child(even) .A {
+            margin-left: auto;
+        }
+        
+
+        .item .A .A-txt {
+            background-color: #000;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .item .B {
+            width: 66.666666%;
+            margin-left: 20%;
+            margin-bottom: -2em;
+            position: relative;
+        }
+        .item:nth-child(even) .B a{
+            flex-direction: row-reverse;
+        }
+        .item:nth-child(even) .B {
+            margin-left: 10%;
+        }
+        .item .B:after {
+            content: '';
+            width: 300px;
+            height: 200px;
+            background-color: #ccc;
+            position: absolute;
+            top: -40px;
+            right: -30px;
+            z-index: -1;
+        }
+
+        .item .B .big-pic {
+            width: 96.875%;
+            margin-right: -6.25%;
+        }
+
+        .item .B .small-pic {
+            width: 9.375%;
+        }
+
+        .item .B a {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            outline: 1px solid blue;
+        }
+
+        .item .C {
+            width: 66.666666%;
+            background-color: #aaa;
+            margin-left: 10%;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .item .C .slg{
+            color:red;
+            display: flex;
+            align-items: center;
+            order: -1;
+        }
+        .item .C h3{
+            background-color: #000;
+            color: #fff;
+            align-self: flex-start;
+            /* display: inline; */
+            flex-grow: 0;
+            outline: 1px red solid;
+        }
+        .item .C .slg:after{
+            content: '';
+            width: 0;
+            height: 1px;
+            flex-grow: 1;
+            background-color: #f00;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="wrap">
+        <section class="item">
+            <div class="A">
+                <h2>title</h2>
+                <div class="A-txt">
+                    <h3>1 title</h3>
+                    <p>人間相關國家氣氛不在落實改造自由婦女，不滿涉及擔心正確團隊更加到達立即她是這麼多無門禮品我們維持，各位機構嘗試印度汽車細胞眾多自從第二天我這福建化工新聞人群，我有大哥真實支撐，手術所有老大個性是我作戰官方住了緩緩針對隨着對不起核心原因，促銷現金技能保持字。
+                    </p>
+                </div>
+            </div>
+            <div class="B">
+                <a href="#">
+                    <img src="https://fakeimg.pl/300x200/fa0" class="big-pic">
+                    <img src="https://fakeimg.pl/60x30/f00" class="small-pic">
+                </a>
+            </div>
+            <div class="C">
+                <h3>主動安全</h3>
+                <p>以先進的TSS系統，主動偵測路況,輔駕駛判斷路況並維持行車安全。</p>
+                <h3>被動安全</h3>
+                <p>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</p>
+                <span class="slg">因為我們做了這些革新</span>
+            </div>
+        </section>
+        <section class="item">
+            <div class="A">
+                <h2>2 title</h2>
+                <div class="A-txt">
+                    <h3>title</h3>
+                    <p>人間相關國家氣氛不在落實改造自由婦女，不滿涉及擔心正確團隊更加到達立即她是這麼多無門禮品我們維持，各位機構嘗試印度汽車細胞眾多自從第二天我這福建化工新聞人群，我有大哥真實支撐，手術所有老大個性是我作戰官方住了緩緩針對隨着對不起核心原因，促銷現金技能保持字。
+                    </p>
+                </div>
+            </div>
+            <div class="B">
+                <a href="#">
+                    <img src="https://fakeimg.pl/300x200/fa0" class="big-pic">
+                    <img src="https://fakeimg.pl/60x30/f00" class="small-pic">
+                </a>
+            </div>
+            <div class="C">
+                <h3>主動安全</h3>
+                <p>以先進的TSS系統，主動偵測路況,輔駕駛判斷路況並維持行車安全。</p>
+                <h3>被動安全</h3>
+                <p>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</p>
+                <span class="slg">因為我們做了這些革新</span>
+            </div>
+        </section>
+        <section class="item">
+            <div class="A">
+                <h2>3 title</h2>
+                <div class="A-txt">
+                    <h3>title</h3>
+                    <p>人間相關國家氣氛不在落實改造自由婦女，不滿涉及擔心正確團隊更加到達立即她是這麼多無門禮品我們維持，各位機構嘗試印度汽車細胞眾多自從第二天我這福建化工新聞人群，我有大哥真實支撐，手術所有老大個性是我作戰官方住了緩緩針對隨着對不起核心原因，促銷現金技能保持字。
+                    </p>
+                </div>
+            </div>
+            <div class="B">
+                <a href="#">
+                    <img src="https://fakeimg.pl/300x200/fa0" class="big-pic">
+                    <img src="https://fakeimg.pl/60x30/f00" class="small-pic">
+                </a>
+            </div>
+            <div class="C">
+                <h3>主動安全</h3>
+                <p>以先進的TSS系統，主動偵測路況,輔駕駛判斷路況並維持行車安全。</p>
+                <h3>被動安全</h3>
+                <p>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</p>
+                <span class="slg">因為我們做了這些革新</span>
+            </div>
+        </section>
+        <section class="item">
+            <div class="A">
+                <h2>4 title</h2>
+                <div class="A-txt">
+                    <h3>title</h3>
+                    <p>人間相關國家氣氛不在落實改造自由婦女，不滿涉及擔心正確團隊更加到達立即她是這麼多無門禮品我們維持，各位機構嘗試印度汽車細胞眾多自從第二天我這福建化工新聞人群，我有大哥真實支撐，手術所有老大個性是我作戰官方住了緩緩針對隨着對不起核心原因，促銷現金技能保持字。
+                    </p>
+                </div>
+            </div>
+            <div class="B">
+                <a href="#">
+                    <img src="https://fakeimg.pl/300x200/fa0" class="big-pic">
+                    <img src="https://fakeimg.pl/60x30/f00" class="small-pic">
+                </a>
+            </div>
+            <div class="C">
+                <h3>主動安全</h3>
+                <p>以先進的TSS系統，主動偵測路況,輔駕駛判斷路況並維持行車安全。</p>
+                <h3>被動安全</h3>
+                <p>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</p>
+                <span class="slg">因為我們做了這些革新</span>
+            </div>
+        </section>
+        <section class="item">
+            <div class="A">
+                <h2>5 title</h2>
+                <div class="A-txt">
+                    <h3>title</h3>
+                    <p>人間相關國家氣氛不在落實改造自由婦女，不滿涉及擔心正確團隊更加到達立即她是這麼多無門禮品我們維持，各位機構嘗試印度汽車細胞眾多自從第二天我這福建化工新聞人群，我有大哥真實支撐，手術所有老大個性是我作戰官方住了緩緩針對隨着對不起核心原因，促銷現金技能保持字。
+                    </p>
+                </div>
+            </div>
+            <div class="B">
+                <a href="#">
+                    <img src="https://fakeimg.pl/300x200/fa0" class="big-pic">
+                    <img src="https://fakeimg.pl/60x30/f00" class="small-pic">
+                </a>
+            </div>
+            <div class="C">
+                <h3>主動安全</h3>
+                <p>以先進的TSS系統，主動偵測路況,輔駕駛判斷路況並維持行車安全。</p>
+                <h3>被動安全</h3>
+                <p>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</p>
+                <span class="slg">因為我們做了這些革新</span>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
