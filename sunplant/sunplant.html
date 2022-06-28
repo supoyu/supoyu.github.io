@@ -741,22 +741,28 @@
         .lv2 {
             /* position: absolute; */
             display: flex;
-            flex-wrap: wrap;
             width: 900px;
             /* height: 600px; */
             /* top: 10%; */
             z-index: 99;
             border: 1px red black;
             background-color: white;
+            flex-direction: row;
         }
 
-        .lv2 li {
+        .first .lv2 ,.third .lv2{
+            flex-wrap: wrap;
+        }
+
+        .first .lv2 li {
             width: 30%;
             /* padding: 0 5%; */
-
-            display: flex;
+            text-align: center;
+            display: inline-block;
             list-style: none;
             flex-direction: column;
+            margin: 1.5%;
+            color: green;
 
 
         }
@@ -771,6 +777,98 @@
 
             /* padding: 0 5%; */
             width: 100%;
+        }
+
+        .second .lv2 {
+            width: 600px;
+            height: 400px;
+
+        }
+
+        .second .lv2>li {
+            flex-grow: 1;
+            box-sizing: border-box;
+            width: 49%;
+
+            height: 100%;
+            display: inline-block;
+
+        }
+
+        .lv2 li ul {
+            padding: 10%;
+        }
+
+        .lv2 li ul li {
+            margin: 20px;
+        }
+
+        .greenline {
+            width: 70%;
+            height: 2px;
+            background-color: green;
+        }
+        .third .lv2{
+            height: 650px;
+        }
+        .third .lv2 > li{
+            width: 22%;
+           display: inline-block;
+        }
+        .third .lv2 > li>ul{
+            display: block;
+        margin: 0;
+        }
+        .third .lv2 > li>ul li{
+        padding: 0;
+        display: block;
+        }
+        .third li img {
+            position: relative;
+            top: 30px;
+            width: 100%;
+            vertical-align: top;
+        }
+        .thirdlast{
+            top: 100%;
+        }
+        .forth>.lv2{
+            width: 200px;
+            /* height: 100%; */
+            flex-direction: column;
+        }
+        .forth .lv2 p{
+            display: block;
+            padding: 20px 30px;
+        }
+        .fifth>.lv2{
+            width: 600%;
+            height: 400px;
+            background-image: url(./banner-menu2.webp);
+            background-size: 100%;
+        }
+        .fifth .lv2 > li{
+            width: 30%;
+           display: inline-block;
+        }
+        @media screen and (max-width:768px) {
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
         }
     </style>
     <script src="https://kit.fontawesome.com/165499f8b6.js" crossorigin="anonymous"></script>
@@ -805,7 +903,9 @@
                     <li>
                         <ul>
                             <li>SHOP FILTER</li>
-                            <li></li>
+                            <li>
+                                <div class="greenline"></div>
+                            </li>
                             <li>Filter Push Left</li>
                             <li>Filter Colappse</li>
                         </ul>
@@ -813,7 +913,9 @@
                     <li>
                         <ul>
                             <li>SHOP LAYOUT</li>
-                            <li></li>
+                            <li>
+                                <div class="greenline"></div>
+                            </li>
                             <li>Full width</li>
                             <li>Sidebar Left</li>
                             <li>Sidebar Right</li>
@@ -825,15 +927,91 @@
             </li>
             <li class="menuitem third">
                 <a href="#">Featured</a>
-                <ul class="lv2"></ul>
+                <ul class="lv2">
+                    <li>
+                        <ul>
+                            <li>BLOG LAYOUTS</li>
+                            <li><div class="greenline"></div></li>
+                            <li>Blog Standar No Sidebar</li>
+                            <li>Blog Standar Sidebar Left</li>
+                            <li>Blog Standar Sidebar Right</li>
+                            <li>Blog Grid No Sidebar</li>
+                            <li>Blog Grid Sidebar</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>PRODUCT LAYOUT</li>
+                            <li><div class="greenline"></div></li>
+                            <li>Product Large Images</li>
+                            <li>Product Extended</li>
+                            <li>Product Gallery</li>
+                            <li>Product Sticky</li>
+                            <li>Product Sidebar</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>PRODUCT TYPES
+                            </li>
+                            <li><div class="greenline"></div></li>
+                            <li>Variable</li>
+                            <li>Video</li>
+                            <li>360 Degree</li>
+                            <li>Affiliate</li>
+                            <li>Simple</li>
+                            <li>Out Of Stock</li>
+                        </ul>
+
+                    </li>
+                    <li class="thirdimg">
+                        <img src="./banner-menu.webp" alt="">
+                    </li>
+                    <li>
+                        <ul class="thirdlast">
+                            <li>SINGLE POST</li>
+                            <li><div class="greenline"></div></li>
+                            <li>Single Post No Sidebar</li>
+                            <li>Single Post Sidebar Right</li>
+                            <li>Single Post Sidebar Left</li>
+                        </ul>
+                    </li>
+
+                </ul>
             </li>
             <li class="menuitem forth">
                 <a href="#">Pages</a>
-                <ul class="lv2"></ul>
+                <ul class="lv2">
+                    <li><p> About Us</p></li>
+                    <li><p> Contact Us</p></li>
+                    <li><p> Wishlist</p></li>
+                </ul>
             </li>
             <li class="menuitem fifth">
                 <a href="#">Element</a>
-                <ul class="lv2"></ul>
+                <ul class="lv2">
+                    <li>
+                        <ul>
+                            <li>MAIN STYLE</li>
+                            <li><div class="greenline"></div></li>
+                            <li>No Sidebar</li>
+                            <li>Default – Menu right</li>
+                            <li>Minimal</li>
+                            <li>Classic</li>
+                            <li>Mordern</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>POST FOMAT</li>
+                            <li><div class="greenline"></div></li>
+                            <li>Elementor</li>
+                            <li>Logo on menu</li>
+                            <li>Default – Menu Left</li>
+                            <li>Logo in menu</li>
+                        </ul>
+                    </li>
+                </ul>
             </li>
         </ul>
         <div class="logo">
