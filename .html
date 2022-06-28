@@ -232,10 +232,6 @@
             right: -0px;
         }
 
-        .copyright {
-            margin: 30px 0;
-        }
-
         .benefits {
             text-align: center;
         }
@@ -308,7 +304,6 @@
             font-size: 35px;
             color: green;
             font-weight: bolder;
-            padding: 30px;
         }
 
         .picklist {
@@ -432,7 +427,7 @@
         .products {
             background-image: url(./bg-video1.webp);
             width: 100%;
-            /* height: 600px; */
+            height: 600px;
             display: flex;
         }
 
@@ -658,9 +653,7 @@
             z-index: 999;
         }
 
-        .cbox {
-            /* display: none; */
-        }
+
 
 
         .logo img {
@@ -757,8 +750,7 @@
             flex-direction: row;
         }
 
-        .first .lv2,
-        .third .lv2 {
+        .first .lv2 ,.third .lv2{
             flex-wrap: wrap;
         }
 
@@ -816,286 +808,74 @@
             height: 2px;
             background-color: green;
         }
-
-        .third .lv2 {
+        .third .lv2{
             height: 650px;
         }
-
-        .third .lv2>li {
+        .third .lv2 > li{
             width: 22%;
-            display: inline-block;
+           display: inline-block;
         }
-
-        .third .lv2>li>ul {
+        .third .lv2 > li>ul{
             display: block;
-            margin: 0;
+        margin: 0;
         }
-
-        .third .lv2>li>ul li {
-            padding: 0;
-            display: block;
+        .third .lv2 > li>ul li{
+        padding: 0;
+        display: block;
         }
-
         .third li img {
             position: relative;
             top: 30px;
             width: 100%;
             vertical-align: top;
         }
-
-        .thirdlast {
+        .thirdlast{
             top: 100%;
         }
-
-        .forth>.lv2 {
+        .forth>.lv2{
             width: 200px;
             /* height: 100%; */
             flex-direction: column;
         }
-
-        .forth .lv2 p {
+        .forth .lv2 p{
             display: block;
             padding: 20px 30px;
         }
-
-        .fifth>.lv2 {
+        .fifth>.lv2{
             width: 600%;
             height: 400px;
             background-image: url(./banner-menu2.webp);
             background-size: 100%;
         }
-
-        .fifth .lv2>li {
+        .fifth .lv2 > li{
             width: 30%;
-            display: inline-block;
+           display: inline-block;
         }
-
         @media screen and (max-width:768px) {
-
-            .footer {
-                /* width: 100%; */
-            }
-
-            .footerimg img {
-                width: 60%;
-            }
-
-            .severlist {
-                flex-wrap: wrap;
-            }
-
-            .severlist .line {
-                display: none;
-            }
-
-            .severlist div:nth-child(odd) {
-                /* padding: 10px
-         10px; */
-            }
-
-            .severlist a {
-                letter-spacing: normal;
-            }
-
-            .footicon {
-                height: 45px;
-                width: 45px;
-                margin: 3px;
-            }
-
-            .igphoto {
-                width: 45%;
-                margin: 2.5%;
-            }
-
-            .igphoto:nth-child(3),
-            .igphoto:nth-child(4) {
-                display: none;
-            }
-
-            .igphotolist {
-                width: 100%;
-                overflow: hidden;
-                flex-wrap: wrap;
-            }
-
-            .products {
-
-                flex-direction: column;
-                justify-content: center;
-            }
-
-            .productinfo {
-                width: 80%;
-                height: 50%;
-                padding-left: 5%;
-                padding-bottom: 0;
-                display: inline;
-            }
-
-            .greenhover {
-                display: none;
-            }
-
-            .productvedio {
-                width: 100%;
-            }
-
-            .picklistitem {
-                width: 50%;
-            }
-
-            .benefitscontent {
-                flex-wrap: wrap;
-            }
-
-            .left,
-            .right {
-                text-align: left;
-                width: 100%;
-                padding-left: 5%;
-                padding-right: 5%;
-            }
-
-            .benefitscontent-img {
-                margin: auto;
-                width: 100%;
-                box-sizing: border-box;
-                padding: 0 5%;
-            }
-
-            .benefitscontent-img img {
-                width: 100%;
-            }
-
-            .headerinfo {
-                position: absolute;
-                left: 0;
-                top: 0;
-                z-index: 1;
-
-            }
-
-            .headerinfo h3 {
-                font-size: 25px;
-
-            }
-
-            .headerimg {
-                padding-right: 0;
-
-            }
-
             
-            .menuiconlist div:nth-child(2) {
-                display: none;
-            }
-
-            .menuiconlist {
-                width: 100%;
-            }
-
-            .logo {
-                position: absolute;
-                width: 30%;
-            }
-
-            .lb {
-                width: 40px;
-                height: 40px;
-                background-color: white;
-                position: relative;
-                margin-left: 10px;
-            }
-            
-            .lb span {
-                height: 2px;
-                width: 80%;
-                background-color: green;
-                position: absolute;
-                left: 10%;
-            }
-            
-            .lb span:nth-child(2) {
-                width: 50%;
-                top: 0;
-                bottom: 0;
-                margin: auto;
-                /* opacity: 1; */
-                /* transition: 1s 2s; */
-            }
-            
-            .lb span:nth-child(1) {
-                top: 10px;
-                transform: rotate(0deg);
-                /* transition: top 1s 2s, transform 1s 1s; */
-            }
-            
-            .lb span:nth-child(3) {
-                width: 40%;
-                bottom: 10px;
-                /* transform: rotate(0deg);
-                transition: bottom 1s 2s, transform 1s 1s; */
-
-            }
-            .lv2{
-                display: none;
-            }
-
-            /* .menuitem{
-                top: 0;
-                left: -10px;
-            } */
-            .menulist {
-                display:inline-block;
-               display: none;
-                flex-direction: column;
-                width: 100%;
-                position: absolute;
-                background-color: white;
-                z-index: 1000;
-                height: 600px;
-                top: 0; 
-                left: 0;
 
 
 
-            }
-            .menuitem:nth-child(1) {
-                padding-top: 60px;
-            }
-            .menuitem {
-                display: block;
-                padding: 20px 0;
-            }
-            .menuitem a{
-                display: block;
-            }
+
+
+
+
+
+
+
+
+
+
 
 
             
-            
-            #cbox-1:checked ~ .menu .menulist {  
-                display: inline-block;
-                top: 0;
-                /* left: 100%; */
-            }
-
         }
     </style>
     <script src="https://kit.fontawesome.com/165499f8b6.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <input type="checkbox" class="cbox" id="cbox-1" >
-    <input type="checkbox" class="cbox" id="cbox-2" >
-    <input type="checkbox" class="cbox" id="cbox-3" >
-    <input type="checkbox" class="cbox" id="cbox-4" >
-    <input type="checkbox" class="cbox" id="cbox-5" >
-    <input type="checkbox" class="cbox" id="cbox-6" >
-    <input type="checkbox" class="cbox" id="cbox-7" >
     <div class="menu">
-        <label for="cbox-1" class="lb"> <span></span><span></span><span></span></label>
         <ul class="menulist">
             <li class="menuitem first">
                 <a href="#">HOME</a>
@@ -1151,9 +931,7 @@
                     <li>
                         <ul>
                             <li>BLOG LAYOUTS</li>
-                            <li>
-                                <div class="greenline"></div>
-                            </li>
+                            <li><div class="greenline"></div></li>
                             <li>Blog Standar No Sidebar</li>
                             <li>Blog Standar Sidebar Left</li>
                             <li>Blog Standar Sidebar Right</li>
@@ -1164,9 +942,7 @@
                     <li>
                         <ul>
                             <li>PRODUCT LAYOUT</li>
-                            <li>
-                                <div class="greenline"></div>
-                            </li>
+                            <li><div class="greenline"></div></li>
                             <li>Product Large Images</li>
                             <li>Product Extended</li>
                             <li>Product Gallery</li>
@@ -1178,9 +954,7 @@
                         <ul>
                             <li>PRODUCT TYPES
                             </li>
-                            <li>
-                                <div class="greenline"></div>
-                            </li>
+                            <li><div class="greenline"></div></li>
                             <li>Variable</li>
                             <li>Video</li>
                             <li>360 Degree</li>
@@ -1196,9 +970,7 @@
                     <li>
                         <ul class="thirdlast">
                             <li>SINGLE POST</li>
-                            <li>
-                                <div class="greenline"></div>
-                            </li>
+                            <li><div class="greenline"></div></li>
                             <li>Single Post No Sidebar</li>
                             <li>Single Post Sidebar Right</li>
                             <li>Single Post Sidebar Left</li>
@@ -1210,15 +982,9 @@
             <li class="menuitem forth">
                 <a href="#">Pages</a>
                 <ul class="lv2">
-                    <li>
-                        <p> About Us</p>
-                    </li>
-                    <li>
-                        <p> Contact Us</p>
-                    </li>
-                    <li>
-                        <p> Wishlist</p>
-                    </li>
+                    <li><p> About Us</p></li>
+                    <li><p> Contact Us</p></li>
+                    <li><p> Wishlist</p></li>
                 </ul>
             </li>
             <li class="menuitem fifth">
@@ -1227,9 +993,7 @@
                     <li>
                         <ul>
                             <li>MAIN STYLE</li>
-                            <li>
-                                <div class="greenline"></div>
-                            </li>
+                            <li><div class="greenline"></div></li>
                             <li>No Sidebar</li>
                             <li>Default – Menu right</li>
                             <li>Minimal</li>
@@ -1240,9 +1004,7 @@
                     <li>
                         <ul>
                             <li>POST FOMAT</li>
-                            <li>
-                                <div class="greenline"></div>
-                            </li>
+                            <li><div class="greenline"></div></li>
                             <li>Elementor</li>
                             <li>Logo on menu</li>
                             <li>Default – Menu Left</li>
