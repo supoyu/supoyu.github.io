@@ -870,6 +870,17 @@
             display: inline-block;
         }
 
+        label {
+            display: none;
+        }
+
+        .menuitem a p {
+            display: none;
+        }
+        .md-option{
+            display: none;
+        }
+
         @media screen and (max-width:768px) {
 
             .footer {
@@ -986,7 +997,7 @@
 
             }
 
-            
+
             .menuiconlist div:nth-child(2) {
                 display: none;
             }
@@ -1007,7 +1018,7 @@
                 position: relative;
                 margin-left: 10px;
             }
-            
+
             .lb span {
                 height: 2px;
                 width: 80%;
@@ -1015,7 +1026,7 @@
                 position: absolute;
                 left: 10%;
             }
-            
+
             .lb span:nth-child(2) {
                 width: 50%;
                 top: 0;
@@ -1024,13 +1035,13 @@
                 /* opacity: 1; */
                 /* transition: 1s 2s; */
             }
-            
+
             .lb span:nth-child(1) {
                 top: 10px;
                 transform: rotate(0deg);
                 /* transition: top 1s 2s, transform 1s 1s; */
             }
-            
+
             .lb span:nth-child(3) {
                 width: 40%;
                 bottom: 10px;
@@ -1038,8 +1049,9 @@
                 transition: bottom 1s 2s, transform 1s 1s; */
 
             }
-            .lv2{
-                display: none;
+
+            .lv2 {
+                /* display: none; */
             }
 
             /* .menuitem{
@@ -1047,58 +1059,200 @@
                 left: -10px;
             } */
             .menulist {
-                display:inline-block;
-               display: none;
+                display: inline-block;
+                display: none;
                 flex-direction: column;
-                width: 100%;
-                position: absolute;
+                width: 90%;
+                position: fixed;
                 background-color: white;
                 z-index: 1000;
                 height: 600px;
-                top: 0; 
+                /* min-height: 500px; */
+                top: 0;
                 left: 0;
-
+                overflow-x: hidden;
 
 
             }
+
             .menuitem:nth-child(1) {
                 padding-top: 60px;
             }
+
             .menuitem {
                 display: block;
-                padding: 20px 0;
+                padding: 5px 0;
             }
-            .menuitem a{
+
+            .menuitem a {
                 display: block;
             }
 
 
-            
-            
-            #cbox-1:checked ~ .menu .menulist {  
+
+
+            #cbox-1:checked~.menu .menulist {
                 display: inline-block;
                 top: 0;
                 /* left: 100%; */
             }
 
+            .close {
+                display: block;
+                background-color: green;
+                color: white;
+                text-align: center;
+
+                height: 10%;
+                position: fixed;
+                width: 90%;
+                bottom: 0;
+                z-index: 1001;
+            }
+
+            .close p {
+                display: block;
+                margin: auto;
+                position: relative;
+                top: 20px;
+            }
+
+            label {
+                display: block;
+            }
+
+            .menuitem>a {
+                display: flex;
+                position: relative;
+
+            }
+
+            .menuitem>a label {
+                display: block;
+                text-align: right;
+                position: absolute;
+                right: 10%;
+                font-weight: bolder;
+            }
+
+            .menulist li:hover ul {
+                display: none;
+            }
+
+            .lv2 {
+                display: inline-block;
+                flex-wrap: nowrap;
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+            }
+
+            .lv2 li {
+                display: inline;
+            }
+
+            .lv2 li a {}
+
+            .lv2 img {
+                display: none;
+
+            }
+
+            #cbox-2:checked~.menu .menulist .first .lv2 {
+                position: relative;
+                display: inline-block;
+                flex-wrap: nowrap;
+                width: 100%;
+            }
+
+
+            #cbox-3:checked~.menu .menulist .second .lv2 {
+                display: inline-block;
+                width: 100%;
+
+                display: block;
+                flex-wrap: nowrap;
+                position: relative;
+            }
+
+            #cbox-4:checked~.menu .menulist .third .lv2 {
+
+                position: relative;
+                display: inline-block;
+                flex-wrap: nowrap;
+                width: 100%;
+            }
+
+            #cbox-5:checked~.menu .menulist .forth .lv2 {
+
+                position: relative;
+                display: inline-block;
+                flex-wrap: nowrap;
+                width: 100%;
+            }
+
+            #cbox-6:checked~.menu .menulist .fifth .lv2 {
+
+                position: relative;
+                display: inline-block;
+                flex-wrap: nowrap;
+                width: 100%;
+                background-size: 0%;
+            }
+            .md-option{
+                display: flex;
+                text-align: center;
+            }
+            .md-option label{
+                display: flex;
+                border: 1px solid rgb(212, 212, 212);
+                height: 60px;
+                flex-grow: 1;
+                text-align: center;
+                justify-content: center;
+                align-content: center;
+                letter-spacing: 2px;
+            }
+            .md-option label i{
+                display: block;
+                padding-top: 20px;
+            }
+            .md-option label:nth-child(1){
+                background-color: black;
+                color: white;
+
+            }
+            
+        }
+        .cbox{
+            display: none;
         }
     </style>
     <script src="https://kit.fontawesome.com/165499f8b6.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <input type="checkbox" class="cbox" id="cbox-1" >
-    <input type="checkbox" class="cbox" id="cbox-2" >
-    <input type="checkbox" class="cbox" id="cbox-3" >
-    <input type="checkbox" class="cbox" id="cbox-4" >
-    <input type="checkbox" class="cbox" id="cbox-5" >
-    <input type="checkbox" class="cbox" id="cbox-6" >
-    <input type="checkbox" class="cbox" id="cbox-7" >
+    <input type="checkbox" class="cbox" id="cbox-1">
+    <input type="checkbox" class="cbox" id="cbox-2">
+    <input type="checkbox" class="cbox" id="cbox-3">
+    <input type="checkbox" class="cbox" id="cbox-4">
+    <input type="checkbox" class="cbox" id="cbox-5">
+    <input type="checkbox" class="cbox" id="cbox-6">
+    <input type="checkbox" class="cbox" id="cbox-7">
+    <input type="checkbox" class="cbox" id="cbox-8">
     <div class="menu">
         <label for="cbox-1" class="lb"> <span></span><span></span><span></span></label>
         <ul class="menulist">
+            <div class="md-option">
+                <label for="cbox-7">
+                    <i class="fa-solid fa-bars">MENU</i>
+                </label>
+                <label for="cbox-8">
+                    <i class="fa-regular fa-circle-user">LOGIN</i>
+                </label>
+            </div>
             <li class="menuitem first">
-                <a href="#">HOME</a>
+                <a href="#">HOME <label for="cbox-2">></label> </a>
                 <ul class="lv2">
                     <li><a href="#"><img src="./menu1.webp" alt=""></a>
                         <p> HOME 1</p>
@@ -1118,7 +1272,7 @@
                 </ul>
             </li>
             <li class="menuitem second">
-                <a href="#">Shop</a>
+                <a href="#">Shop<label for="cbox-3">></label></a>
                 <ul class="lv2">
                     <li>
                         <ul>
@@ -1146,7 +1300,7 @@
                 </ul>
             </li>
             <li class="menuitem third">
-                <a href="#">Featured</a>
+                <a href="#">Featured<label for="cbox-4">></label></a>
                 <ul class="lv2">
                     <li>
                         <ul>
@@ -1208,7 +1362,7 @@
                 </ul>
             </li>
             <li class="menuitem forth">
-                <a href="#">Pages</a>
+                <a href="#">Pages<label for="cbox-5">></label></a>
                 <ul class="lv2">
                     <li>
                         <p> About Us</p>
@@ -1222,7 +1376,7 @@
                 </ul>
             </li>
             <li class="menuitem fifth">
-                <a href="#">Element</a>
+                <a href="#">Element<label for="cbox-6">></label></a>
                 <ul class="lv2">
                     <li>
                         <ul>
@@ -1251,6 +1405,9 @@
                     </li>
                 </ul>
             </li>
+            <label for="cbox-1" class="close">
+                <p>X close</p>
+            </label>
         </ul>
         <div class="logo">
             <a href="#"><img src="./logo.webp" alt=""></a>
