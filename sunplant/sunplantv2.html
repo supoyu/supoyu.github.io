@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../grid.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+
+        label {
+            display: block;
+            z-index: 2;
+        }
+
+        input {
+            display: none;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+
+            padding: 20px 0;
+            box-sizing: border-box;
+            height: 10%;
+            position: fixed;
+            top: 0;
+
+        }
+
+        .header>div a {
+            display: block;
+        }
+
+        .logo {
+            width: 30%;
+
+
+        }
+
+        .logo img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            width: 100px;
+
+        }
+
+        .iconlist {
+            display: flex;
+            width: 70px;
+
+        }
+
+        .icon {
+            font: 18px;
+            margin: 10px;
+            text-align: end;
+            /* padding-right: 10px; */
+            position: relative;
+        }
+
+        .menu {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .menubackshadow {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(51, 51, 51);
+            top: 0;
+            left: 0;
+            z-index: 0;
+            /* display: none; */
+            opacity: 0;
+        }
+
+        .menulist {
+            background-color: #fff;
+            display: block;
+            flex-wrap: wrap;
+            width: 300px;
+            height: 100%;
+            position: fixed;
+            left: -100%;
+            padding: 30px;
+            z-index: 2;
+            /* display: none; */
+            box-sizing: border-box;
+            top: 0;
+            transition: 1s;
+        }
+
+        #cbox-menu:checked~.header .menu .hamberger {
+            left: -100%;
+            transition: .5s;
+        }
+
+        #cbox-menu:checked~.header .menu .menulist,
+        #cbox-menu:checked~.header .menu .close {
+            left: 0;
+            transition: 1s;
+        }
+
+        #cbox-menu:checked~.header .menu .menubackshadow,
+        #cbox-home:checked~.header .menu .menulist li .lv2 {
+            opacity: 1;
+            display: block;
+            top: 0;
+            transition: 1s;
+            z-index: 1;
+        }
+
+        #cbox-home:checked~.header .menu .menulist li:nth-child(1) label, 
+        #cbox-shop:checked~.header .menu .menulist li:nth-child(2) label, 
+        #cbox-featured:checked~.header .menu .menulist li:nth-child(3) label ,
+        #cbox-pages:checked~.header .menu .menulist li:nth-child(4) label ,
+        #cbox-element:checked~.header .menu .menulist li:nth-child(5) label 
+        {
+            transform: rotate(180deg);
+            transition: 1s;
+        }
+
+        .lv2 {
+            position: relative;
+            display: none;
+            /* z-index: 12; */
+        }
+
+        .menulist a {
+            display: block;
+            padding: 20px 0;
+        }
+
+        .menulist>li {
+            width: 100%;
+            display: inline-block;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .menulist li label {
+            display: flex;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            transition: 1s;
+        }
+
+        .hamberger {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            position: absolute;
+            /* right:  0; */
+
+        }
+
+        .hamberger span {
+            height: 2px;
+            width: 80%;
+            background-color: green;
+            position: absolute;
+            left: 10%;
+        }
+
+        .hamberger span:nth-child(1) {
+            top: 10px;
+            transform: rotate(0deg);
+        }
+
+        .hamberger span:nth-child(2) {
+            width: 50%;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .iconlist {
+            padding-right: 20px;
+            position: absolute;
+            right: 0;
+            display: flex;
+        }
+
+        .cart span {
+            position: absolute;
+            background-color: #fff;
+            width: 5px;
+            height: 8px;
+            border: 1px solid black;
+            border-radius: 50%;
+            left: 5px;
+            bottom: 18px;
+        }
+
+        .hamberger span:nth-child(3) {
+            width: 40%;
+            bottom: 10px;
+        }
+
+        .close {
+            display: block;
+            background-color: green;
+            color: white;
+            text-align: center;
+
+            height: 10%;
+            position: fixed;
+            width: 300px;
+            bottom: 0;
+            z-index: 2;
+            left: -100%;
+            transition: 1s;
+        }
+
+        .close p {
+            display: block;
+            margin: auto;
+            position: relative;
+            top: 20px;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/165499f8b6.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <input type="checkbox" id="cbox-menu" class="cbox">
+    <input type="checkbox" id="cbox-home" class="cbox">
+    <input type="checkbox" id="cbox-shop" class="cbox">
+    <input type="checkbox" id="cbox-featured" class="cbox">
+    <input type="checkbox" id="cbox-pages" class="cbox">
+    <input type="checkbox" id="cbox-element" class="cbox">
+    <div class="header">
+        <div class="menu">
+            <label for="cbox-menu" class="hamberger"><span></span><span></span><span></span></label>
+
+            <ul class="menulist">
+                <li><a href="#">Home</a>
+                    <label for="cbox-home">></label>
+                    <ul class="lv2">
+                        <li><a href="#">
+                                <p> HOME 1</p>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                                <p> HOME 2</p>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                                <p> HOME 3</p>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                                <p> HOME 4</p>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                                <p> HOME 5</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Shop</a>
+                    <label for="cbox-shop">></label>
+
+                </li>
+                <li><a href="#">Featured</a>
+                    <label for="cbox-featured">></label>
+
+                </li>
+                <li><a href="#">Pages</a>
+                    <label for="cbox-pages">></label>
+
+                </li>
+                <li><a href="#">Element</a>
+                    <label for="cbox-element">></label>
+
+                </li>
+                <label for="cbox-menu" class="close">
+                    <p>X close</p>
+                </label>
+            </ul>
+            <div class="menubackshadow"></div>
+        </div>
+        <div class="logo">
+            <a href="#">
+                <img src="./logo.webp" alt="">
+            </a>
+        </div>
+        <div class="iconlist">
+            <div class="icon search"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></div>
+            <div class="icon cart"><a href="#"> <i class="fa-solid fa-basket-shopping"><span></span></i> </a></div>
+        </div>
+    </div>
+</body>
+
+</html>
