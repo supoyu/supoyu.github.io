@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        .main {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #input {
+            outline: none;
+        }
+
+        .record {
+            border-radius: 0.375rem;
+            border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+            line-height: 50px;
+        }
+
+        .ab,
+        .a4 {
+            font-size: 18px;
+            padding: 5px;
+            display: inline;
+            border-radius: 0.375rem;
+            margin: 0 10px;
+        }
+
+        .ab {
+            background-color: red;
+        }
+
+        .a4 {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="h1-title text-center pt-5">猜數字</h1>
+    <div class="main">
+        <div class="btn-group col-9  border border-dark btn-secondary mb-5" role="group" aria-label="Basic example">
+            <button type="button" class="btn border border-dark" id="start">開始</button>
+            <button type="button" class="btn border border-dark" id="giveup">放棄重來</button>
+            <button type="button" class="btn border border-dark" id="checkanswer">看答案</button>
+        </div>
+        <div class="recordlist col-9 ">
+        </div>
+
+        <div class="inputanswer btn-group col-9  border border-dark btn-secondary text-center mt-5">
+            <span class="inputtitle col-1 bg-secondary text-white p-2">猜答案</span>
+            <input type="text" id="input" class="inputanswerbox  col-10">
+            <button class="btn col-1" id="guess">猜</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script>
+        let start = document.getElementById('start')
+        start.addEventListener('click', () => {
+            createanswer()
+            start.disabled = true
+            giveup.disabled = false
+            checkanswer.disabled = false
+            guess.disabled = false
+        })
+        let giveup = document.getElementById('giveup')
+        giveup.addEventListener('click', () => {
+            alert(answer.toString().replaceAll(',', ''))
+            reset()
+        })
+
+        let checkanswer = document.getElementById('checkanswer')
+        checkanswer.addEventListener('click', () => {
+            alert(answer.toString().replaceAll(',', ''))
+        })
+        let recordlist = document.querySelector('.recordlist')
+        let input = document.getElementById('input')
+        let guess = document.getElementById('guess')
+        guess.addEventListener('click', () => {
+            check()
+        })
+
+        let answer = []
+        window.onload = function () {
+            reset()
+        }
+    </script>
+    <script>
+        function createanswer() {
+            let pool = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            for (let i = 0; i < 4; i++) {
+                let index = Math.floor(Math.random() * (pool.length));
+                answer.push(pool[index]);
+                pool.splice(index, 1);
+            };
+        }
+        function reset() {
+
+            answer = []
+            recordlist.innerText = ""
+            start.disabled = false
+            giveup.disabled = true
+            checkanswer.disabled = true
+            guess.disabled = true
+        }
+        function check() {
+
+            let inputanswer = Array.from(input.value)
+            if (inputanswer.length == 4 && Number.isInteger(parseInt(input.value))) {
+                let record = document.createElement("div")
+                record.setAttribute("class", "record")
+                // inputanswer / answer
+                let samenumber = answer.filter(x => inputanswer.includes(x))
+                let a = samenumber.filter(x => answer.indexOf(x) == inputanswer.indexOf(x)).length
+                let b = samenumber.length - a
+                if (a == 4) {
+                    let a4 = document.createElement("p")
+                    a4.innerText = `${a}A${b}B`
+                    a4.setAttribute("class", "a4")
+                    record.append(a4)
+                    guess.disabled = true
+                }
+                else {
+                    let ab = document.createElement("p")
+                    ab.innerText = `${a}A${b}B`
+                    ab.setAttribute("class", "ab")
+                    record.append(ab)
+                }
+                record.append(input.value)
+                recordlist.append(record)
+            }
+            else{alert('請輸入四個數字')}
+            input.value=""
+        }
+    </script>
+</body>
