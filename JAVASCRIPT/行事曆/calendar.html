@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        .dayblock {
+            cursor: pointer;
+            height: 100px;
+
+            overflow-x: hidden;
+            flex-direction: column;
+
+        }
+
+        /* .dayblock {} */
+
+        .month {
+            font-size: 40px;
+            font-weight: bolder;
+        }
+
+        th {
+            width: 100px;
+        }
+
+        .modalblock,
+        .modalblock2 {
+            border: 1px gray solid;
+            border-radius: 10px;
+            padding: 5px 15px;
+            background-color: #ccc;
+        }
+
+        .modalblock span {
+            display: block;
+            width: 30px;
+            text-align: center;
+
+        }
+
+        .modalinput {
+            outline: none;
+            border: none;
+
+        }
+
+        textarea {
+            padding-top: 10px;
+            padding-left: 10px;
+            height: 200px;
+            resize: none;
+        }
+
+        th:hover {
+            box-shadow: 5px 5px 5px;
+        }
+
+        th>p {
+            display: block;
+        }
+
+        .i {
+            top: 20%;
+            display: block;
+            text-align: center;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .i:hover {
+            /* box-shadow: 5px 5px; */
+            transform: scale(1.3);
+            box-shadow: 0px 0px 50px 2px rgba(98, 218, 234, 0.9);
+            transition: transform 0.5s;
+        }
+
+        .minus {
+            font-size: 30px;
+            left: 30%;
+        }
+
+        .plus {
+            font-size: 30px;
+            right: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center">
+        <table class="w-100 table table-bordered border-secondary ">
+            <thead>
+                <input type="text" name="" id="" class="inputyear" maxlength="4" placeholder="">年
+                <input type="text" name="" id="" class="inputmonth" maxlength="2">月
+                <button class="btn btn-primary change m-2">輸入年月</button>
+                <button class="btn btn-primary today">今天</button>
+                <br>
+                <p class="year"></p>
+                <div class="position-relative">
+                    <div class="position-absolute minus i"><i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <div class="position-absolute plus i"><i class="fa-solid fa-angle-right "></i>
+                    </div>
+
+                    <p class="month"></p>
+                </div>
+                <tr class="d-flex">
+                    <th class="flex-grow-1" scope="col">日</th>
+                    <th class="flex-grow-1" scope="col">一</th>
+                    <th class="flex-grow-1" scope="col">二</th>
+                    <th class="flex-grow-1" scope="col">三</th>
+                    <th class="flex-grow-1" scope="col">四</th>
+                    <th class="flex-grow-1" scope="col">五</th>
+                    <th class="flex-grow-1" scope="col">六</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="dayblocks d-flex">
+                    <th day-id="01" class="dayblock flex-grow-1">id01</th>
+                    <th day-id="02" class="dayblock flex-grow-1">id02</th>
+                    <th day-id="03" class="dayblock flex-grow-1">id03</th>
+                    <th day-id="04" class="dayblock flex-grow-1">id04</th>
+                    <th day-id="05" class="dayblock flex-grow-1">id05</th>
+                    <th day-id="06" class="dayblock flex-grow-1">id06</th>
+                    <th day-id="07" class="dayblock flex-grow-1">id07</th>
+                </tr>
+                <tr class="dayblocks d-flex">
+                    <th day-id="08" class="dayblock flex-grow-1">id08</th>
+                    <th day-id="09" class="dayblock flex-grow-1">id09</th>
+                    <th day-id="10" class="dayblock flex-grow-1">id10</th>
+                    <th day-id="11" class="dayblock flex-grow-1">id11</th>
+                    <th day-id="12" class="dayblock flex-grow-1">id12</th>
+                    <th day-id="13" class="dayblock flex-grow-1">id13</th>
+                    <th day-id="14" class="dayblock flex-grow-1">id14</th>
+                </tr>
+                <tr class="dayblocks d-flex">
+                    <th day-id="15" class="dayblock flex-grow-1">id15</th>
+                    <th day-id="16" class="dayblock flex-grow-1">id16</th>
+                    <th day-id="17" class="dayblock flex-grow-1">id17</th>
+                    <th day-id="18" class="dayblock flex-grow-1">id18</th>
+                    <th day-id="19" class="dayblock flex-grow-1">id19</th>
+                    <th day-id="20" class="dayblock flex-grow-1">id20</th>
+                    <th day-id="21" class="dayblock flex-grow-1">id21</th>
+                </tr>
+                <tr class="dayblocks d-flex">
+                    <th day-id="22" class="dayblock flex-grow-1">id22</th>
+                    <th day-id="23" class="dayblock flex-grow-1">id23</th>
+                    <th day-id="24" class="dayblock flex-grow-1">id24</th>
+                    <th day-id="25" class="dayblock flex-grow-1">id25</th>
+                    <th day-id="26" class="dayblock flex-grow-1">id26</th>
+                    <th day-id="27" class="dayblock flex-grow-1">id27</th>
+                    <th day-id="28" class="dayblock flex-grow-1">id28</th>
+                </tr>
+                <tr class="dayblocks d-flex">
+                    <th day-id="29" class="dayblock flex-grow-1">id29</th>
+                    <th day-id="30" class="dayblock flex-grow-1">id30</th>
+                    <th day-id="31" class="dayblock flex-grow-1">id31</th>
+                    <th day-id="32" class="dayblock flex-grow-1">id32</th>
+                    <th day-id="33" class="dayblock flex-grow-1">id33</th>
+                    <th day-id="34" class="dayblock flex-grow-1">id34</th>
+                    <th day-id="35" class="dayblock flex-grow-1">id35</th>
+                </tr>
+                <tr class="dayblocks d-flex">
+                    <th day-id="36" class="dayblock flex-grow-1">id29</th>
+                    <th day-id="37" class="dayblock flex-grow-1">id30</th>
+                    <th day-id="38" class="dayblock flex-grow-1">id31</th>
+                    <th day-id="39" class="dayblock flex-grow-1">id32</th>
+                    <th day-id="40" class="dayblock flex-grow-1">id33</th>
+                    <th day-id="41" class="dayblock flex-grow-1">id34</th>
+                    <th day-id="42" class="dayblock flex-grow-1">id35</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">你要做甚麼</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body ">
+                    <div class="d-flex w-100">
+                        <!-- <div class="mt-3 modalblock d-flex flex-grow-1">
+                            <input type="text" class="rounded-2 text-center  modalinput flex-grow-1 getyear" size="4"
+                                maxlength="4"><span class="align-content-center">年</span>
+                        </div>
+                        <div class="mt-3 modalblock d-flex flex-grow-1">
+                            <input type="text" class="rounded-2 text-center modalinput flex-grow-1
+                            getmonth" size="2"
+                                maxlength="2"><span class="">月</span>
+                        </div>
+                        <div class="mt-3 modalblock d-flex flex-grow-1">
+                            <input type="text" class="rounded-2 text-center modalinput flex-grow-1 getday" size="2"
+                                maxlength="2"><span class="">日</span>
+                        </div> -->
+                        <input type="date" class="getdate  text-center" value='2022-07-09'>
+                    </div>
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="mt-3">
+                            <span>備註顏色</span><input type="color" class=" text-center getcolor" value="#ff0000">
+                        </div>
+                        <!-- <div class="mt-3 modalblock d-flex flex-grow-1">
+                            <input type="text" class="rounded-2 text-center  modalinput flex-grow-1" size="2"
+                                maxlength="2"><span class="align-content-center">點</span>
+                        </div>
+                        <div class="mt-3 modalblock d-flex flex-grow-1">
+                            <input type="text" class="rounded-2 text-center modalinput flex-grow-1" size="2"
+                                maxlength="2"><span class="">分</span>
+                        </div> -->
+                        <input type="time" class="rounded-2 text-center modalinput gettime" size="2">
+                    </div>
+                    <div class="mt-3  d-flex flex-wrap modalblock2 text-center">
+                        <span class="d-block w-100 ">待辦事項</span>
+                        <!-- <input type="text" class=" text-left w-100 modalinput rounded-3"> 14651 -->
+                        <textarea name="textarea" class="w-100 modalinput rounded-3 dosomething">12345</textarea>
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary clear" onclick="Clear()"
+                        data-bs-dismiss="modal">清除當天行程</button>
+                    <button type="button" class="btn btn-primary save" data-bs-dismiss="modal">儲存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/165499f8b6.js" crossorigin="anonymous"></script>
+    <script>
+        let monthlist = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+        let weeklist = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday',]
+        let month = document.querySelector('.month')
+        let year = document.querySelector('.year')
+        let days = document.querySelectorAll('[day-id]')
+        let changeBtn = document.querySelector('.change')
+        let gettime = document.querySelector('.gettime')
+        let getdate = document.querySelector('.getdate')
+        let dosomething = document.querySelector('.dosomething')
+        let getcolor = document.querySelector('.getcolor')
+        changeBtn.onclick = function () {
+            enteryear()
+        }
+        let todayBtn = document.querySelector('.today')
+        todayBtn.onclick = function () {
+            Reset()
+        }
+        let saveBtn = document.querySelector('.save')
+        saveBtn.onclick = function () {
+            Save()
+        }
+        let date = new Date()
+
+
+
+
+        month.innerText = monthlist[date.getMonth()]
+
+        window.onload = function () {
+            Reset()
+
+        }
+
+
+        function enteryear() {
+            let inputyear = document.querySelector('.inputyear').value
+            let inputmonth = document.querySelector('.inputmonth').value
+            if (inputmonth == '' || inputyear == '') {
+                date = new Date()
+            } else {
+                date = new Date(inputyear, inputmonth - 1, 1)
+            }
+            setday()
+        }
+        function Reset() {
+            date = new Date()
+            setday()
+
+        }
+        function setday() {
+
+            let dateyear = date.getFullYear()
+            let datemonth = date.getMonth()
+            let dateweek = date.getDay()
+            let thismonthlastdate = new Date(dateyear, datemonth + 1, 0)
+            let lastdate = thismonthlastdate.getDate()
+            let lastmonthlastdate = new Date(dateyear, datemonth, 0)
+            let lastmonthlastdateweek = lastmonthlastdate.getDay()
+
+            let lastmonthlastdateday = lastmonthlastdate.getDate()
+            let firstday = 1
+            let lastmonthday = 0
+            let right = document.querySelector('.plus')
+            right.onclick = function () {
+                date = new Date(dateyear, datemonth + 1, 1)
+                setday()
+            }
+            let left = document.querySelector('.minus')
+            left.onclick = function () {
+                date = new Date(dateyear, datemonth - 1, 1)
+                setday()
+            }
+            let inputyearph = document.querySelector('.inputyear')
+            let inputmonthph = document.querySelector('.inputmonth')
+            inputyearph.setAttribute('placeholder', dateyear)
+            inputmonthph.setAttribute('placeholder', datemonth)
+            year.innerText = dateyear + "年"
+            days.forEach((day, index) => {
+
+                // getdate.value =""
+                day.onclick = ''
+                day.innerText = ''
+                day.setAttribute('data-bs-toggle', '')
+                day.setAttribute('data-bs-target', '')
+                day.setAttribute('date', '')
+                day.setAttribute('style', 'color:black')
+                if (index > lastmonthlastdateweek && firstday <= lastdate) {
+                    let dayid = day.getAttributeNode('day-id').value
+                    // console.log(dayid)
+                    // day.innerText = `${date.getMonth() + 1}月${firstday}日`
+                    day.innerText = `${firstday}`
+                    day.setAttribute('data-bs-toggle', 'modal')
+                    day.setAttribute('data-bs-target', '#exampleModal')
+                    let today = `${dateyear}-${String(datemonth + 1).padStart(2, '0')}-${String(firstday).padStart(2, "0")}`
+                    day.setAttribute('date', today)
+                    day.onclick = function (event) {
+                        dosomething.value = ''
+                        getdate.setAttribute('value', `${today}`)
+                        // let target = event.target
+                        // target.classList.add('blue')
+                        // console.log(target)
+
+                    }
+                    firstday++
+                }
+                else if (index <= lastmonthlastdateweek) {
+                    let dayid = day.getAttributeNode('day-id').value
+                    let today_ = `${lastmonthlastdateday - lastmonthlastdateweek + lastmonthday}`
+                    day.innerText = today_
+                    day.setAttribute('data-bs-toggle', 'modal')
+                    day.setAttribute('data-bs-target', '#exampleModal')
+                    if (datemonth == 0) {
+                        let today = `${dateyear - 1}-12-${today_}`
+                        day.setAttribute('date', today)
+                        day.onclick = function () {
+                            dosomething.value = ''
+                            getdate.setAttribute('value', `${today}`)
+                            datemonth = 12
+                            dateyear -= 1
+                            date = new Date(`${dateyear},${datemonth},1`)
+
+                            setTimeout(setday(), 500)
+                        }
+                    }
+                    else {
+                        let today = `${dateyear}-${String(datemonth).padStart(2, '0')}-${today_}`
+                        day.setAttribute('date', today)
+                        day.onclick = function () {
+                            dosomething.value = ''
+                            getdate.setAttribute('value', `${today}`)
+
+                            date = new Date(`${dateyear},${String(datemonth).padStart(2, '0')},1`)
+
+                            setTimeout(setday(), 500)
+                        }
+
+                    }
+                    // day.onclick = function(){
+                    //     getdate.setAttribute('value',`${today}`)
+                    //     if(datemonth==0){
+                    //         datemonth = 12
+                    //         dateyear-=1
+                    //         date = new Date(`${dateyear},${datemonth},1`)
+                    //     }
+                    //     else{
+                    //         date = new Date(`${dateyear},${String(datemonth).padStart(2, '0')},1`)
+                    //     // date = new Date(`${dateyear},${datemonth+1},1`)
+                    //     }
+                    //     setTimeout(setday() ,500) 
+                    // }
+                    lastmonthday++
+                    day.setAttribute('style', 'color:#D3D3D3 ')
+                }
+                else if (firstday > lastdate) {
+                    // firstday = 1
+                    let dayid = day.getAttributeNode('day-id').value
+                    let today_ = `${firstday - lastdate}`
+                    day.innerText = today_
+                    day.setAttribute('data-bs-toggle', 'modal')
+                    day.setAttribute('data-bs-target', '#exampleModal')
+                    if (datemonth + 2 > 12) {
+                        let today = `${dateyear + 1}-01-${String(today_).padStart(2, "0")}`
+                        day.setAttribute('date', today)
+                        day.onclick = function () {
+                            dosomething.value = ''
+                            getdate.setAttribute('value', `${today}`)
+
+                            datemonth = 1
+                            dateyear += 1
+                            date = new Date(`${dateyear},${datemonth},1`);
+                            // event.target.style.border-color = 'blue';
+                            setTimeout(setday(), 500)
+                        }
+                    }
+                    else {
+                        let today = `${dateyear}-${String(datemonth + 2).padStart(2, '0')}-${String(today_).padStart(2, "0")}`
+
+                        day.setAttribute('date', today)
+                        day.onclick = function () {
+                            dosomething.value = ''
+
+                            getdate.setAttribute('value', `${today}`)
+                            date = new Date(`${dateyear},${datemonth + 2},1`)
+
+                            setTimeout(setday(), 500)
+                        }
+                    }
+                    // day.onclick = function(){
+                    //     getdate.setAttribute('value',`${today}`)
+                    //     if(datemonth+2>12){
+                    //         datemonth = 1
+                    //         dateyear+=1
+                    //         date = new Date(`${dateyear},${datemonth},1`)
+                    //     }
+                    //     else{
+                    //     date = new Date(`${dateyear},${datemonth+2},1`)
+                    //     }
+                    //     setTimeout(setday() ,500) 
+                    // }
+                    firstday++
+                    day.setAttribute('style', 'color:#D3D3D3 ')
+                }
+
+            })
+            month.innerText = monthlist[date.getMonth()]
+            Load()
+        }
+        function Save() {
+            let gettime_value = document.querySelector('.gettime').value
+            let getdate_value = document.querySelector('.getdate').value
+            let dosomething_value = document.querySelector('.dosomething').value
+            let getcolor_value = document.querySelector('.getcolor').value
+            let todolist =
+            {
+                time: gettime_value,
+                color: getcolor_value,
+                todo: dosomething_value,
+            }
+
+
+            let i = 0
+            while (localStorage.getItem(`${getdate_value}-${i}`) != null) {
+                i++
+            }
+            localStorage.setItem(`${getdate_value}-${i}`, JSON.stringify(todolist))
+            gettime_value = ''
+            getcolor_value = ''
+            dosomething_value = ''
+
+            let todoJSON = JSON.parse(localStorage.getItem(`${getdate_value}-${i}`))
+            let p = document.createElement('div')
+            p.style.color = todoJSON.color
+            p.innerText = "!"+todoJSON.time
+            p.setAttribute('date', `${getdate_value}-${i}`)
+            p.onclick = () => {
+                localStorage.removeItem(`${getdate_value}-${i}`)
+                setday()
+            }
+            document.querySelector(`[date = "${getdate_value}"]`).append(p)
+        }
+        function Load() {
+            let datearray = []
+            document.querySelectorAll('th[date]').forEach((th) => {
+                let dateid = th.getAttribute('date')
+                datearray.push(dateid)
+            })
+            datearray.forEach((date, index) => {
+                let i = 0
+                while (localStorage.getItem(`${date}-${i}`) != null) {
+                    let todoJSON = JSON.parse(localStorage.getItem(`${date}-${i}`))
+                    let p = document.createElement('div')
+                    p.style.color = todoJSON.color
+                    p.innerText = "!"+todoJSON.time
+                    p.setAttribute('date', `${date}-${i}`)
+                    let pdate = p.getAttribute('date')
+                    p.onclick = () => {
+                        localStorage.removeItem(pdate)
+                        setday()
+                    }
+                    document.querySelector(`[date = "${date}"]`).append(p)
+                    i++
+                }
+            })
+        }
+        function Clear() {
+            let getdate_value = document.querySelector('.getdate').value
+            let i = 0
+            while (localStorage.getItem(`${getdate_value}-${i}`) != null) {
+                localStorage.removeItem(`${getdate_value}-${i}`)
+                i++
+            }
+            setday()
+        }
+    </script>
+</body>
+
+</html>
