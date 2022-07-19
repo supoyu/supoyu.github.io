@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <style>
+        img {
+            width: 100%;
+        }
+
+        .card {
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            flex-grow: 1;
+
+        }
+
+        .card-body {
+            background-color: rgb(254, 208, 123);
+        }
+
+        .card-title {
+            background-color: #000;
+            color: white;
+            line-height: 40px;
+            border-radius: 20px;
+            padding-left: 10px;
+            font-size: 16px;
+        }
+
+        .card-text {
+            font-size: 10px;
+            position: relative;
+            line-height: 1.5em;
+            height: 4.5em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .modal-header {
+            background-color: rgb(137, 111, 255);
+            width: 100%
+        }
+
+        .tag {
+            display: flex;
+
+            text-align: left;
+            /* padding-left: 5px; */
+        }
+
+        .tag p {
+            display: block;
+            padding: 0 5px;
+            margin: 3px;
+            border-radius: 10px;
+        }
+
+        .Tank {
+            background-color: green;
+        }
+
+        .Fighter {
+            background-color: red;
+        }
+
+        .Mage {
+            background-color: blue;
+            color: aqua;
+        }
+
+        .Marksman {
+            background-color: gainsboro;
+        }
+
+        .Assassin {
+            background-color: rgb(38, 38, 38);
+            color: rgb(181, 181, 181);
+        }
+
+        .Support {
+            background-color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container-fluid'>
+        <div class='jumbotron bg-info'>
+            <h1>LOL 卡牌 card</h1>
+        </div>
+        <div class='row'>
+            <!-- <div class="col-md-6 col-lg-3 col-12 p-2 ">
+                <div class="card">
+                    <img src="./Aatrox_0.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">0 : Aatrox - 厄薩斯</h5>
+                        <p class="card-text">尊貴的蘇瑞瑪守護者過去曾為符文大地挺身對抗虛空，只不過厄薩斯.....</p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#CardModal">詳細</a>
+                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#videoModal">影片</a>
+                        <div class="tag">
+                            <p class="Tank">Assassin</p>
+                            <p class="Assassin">Assassin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 col-12 p-2 ">
+                <div class="card">
+                    <img src="./Aatrox_0.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">index - id - name</h5>
+                        <p class="card-text">blurb.substring(0,25 )</p>
+                        <a href="#" class="btn btn-primary">詳細資料</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 col-12 p-2 ">
+                <div class="card">
+                    <img src="./Aatrox_0.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">title</h5>
+                        <p class="card-text">description</p>
+                        <a href="#" class="btn btn-primary">詳細資料</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 col-12 p-2 ">
+                <div class="card">
+                    <img src="./Aatrox_0.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">title</h5>
+                        <p class="card-text">description</p>
+                        <a href="#" class="btn btn-primary">詳細資料</a>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+
+    <!-- <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">title</h5>
+            <p class="card-text">description</p>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#CardModal">詳細資料</a>
+        </div>
+    </div> -->
+    <template id="LOLcard">
+        <div class="col-md-6 col-lg-3 col-12 p-2 ">
+            <div class="card">
+                <img src="" class="card-img-top" alt="圖片因故無法顯示.jpg">
+                <div class="card-body">
+                    <h5 class="card-title">index - id - name</h5>
+                    <p class="card-text">blurb.substring(0,25 )</p>
+                    <a href="#" class="btn btn-primary info" data-toggle="modal" data-target="#CardModal">詳細</a>
+                    <a href="#" class="btn btn-danger video" data-toggle="modal" data-target="#videoModal">影片</a>
+                    <div class="tag">
+                        <!-- tag在這裡創建p
+                        class+自己以顯示外框 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+
+
+
+
+    <div class="modal fade border-3 border-primary" id="CardModal" tabindex="-1" role="dialog"
+        aria-labelledby="CardModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="CardModalLabel">{{Aatrox - 厄薩斯}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="lolImage" src="{{./Aatrox_0.jpg}}">
+                    <h1 id="description" class="text-primary"></h1>
+                    <canvas id="Ability">deb</canvas>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="videoModalLabel">介紹影片</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/szxnadodQzE"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen class="w-100"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"
+        integrity="sha512-G8JE1Xbr0egZE5gNGyUm1fF764iHVfRXshIoUWCTPAbKkkItp/6qal5YAHXrxEu4HNfPTQs6HOu3D5vCGS1j3w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+    <script>
+        const url = 'https://ddragon.leagueoflegends.com/cdn/10.22.1/data/zh_TW/champion.json';
+        let nameArray = [];
+        let championsObject = {};
+        let heroarray = []
+        let statsArray = []
+        let tagsArray = []
+        let card = document.querySelector('#LOLcard')
+        let row = document.querySelector('.row')
+        window.onload = function () {
+            fetch(url)
+                .then(response => response.json())
+                .then(result => {
+                    championsObject = result.data
+                    ObjectToArray()
+                    setcard()
+                })
+                .catch()
+
+
+        }
+
+
+
+        function setcard() {
+            heroarray.forEach((x, index) => {
+                let cloneCard = card.content.cloneNode(true);
+                cloneCard.querySelector("img").src = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${x.id}_0.jpg`;
+                cloneCard.querySelector("h5").innerText = `${index} : ${x.id} - ${x.name}`;
+                cloneCard.querySelector("p").innerText = `${x.blurb}`;
+                let tags = cloneCard.querySelector('.tag')
+                tagsArray[index].forEach(x => {
+                    let tag = document.createElement('p')
+                    tag.innerText = x
+                    tag.setAttribute('class', x)
+                    tags.append(tag)
+                })
+                cloneCard.querySelector(".info").onclick = function () {
+                    document.querySelector('#CardModalLabel').innerText = `${x.id} - ${x.name}`
+                    document.querySelector('#lolImage').src = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${x.id}_0.jpg`
+                    newChart(statsArray[index]['hp'], statsArray[index]['attackdamage'], statsArray[index]['armor'], statsArray[index]['attackrange'], statsArray[index]['movespeed'])
+
+                }
+                cloneCard.querySelector(".video").onclick = function () {
+                    document.querySelector('#videoModalLabel').innerText = `${x.name}介紹影片`
+                    console.log("123")
+                }
+
+                row.append(cloneCard)
+                // return cloneCard; 
+            })
+        }
+        // function setmodel() {
+        //     statsArray.forEach((x) => {
+
+        //     })
+        // }
+
+        function ObjectToArray() {
+            Object.values(championsObject).forEach(x => {
+                heroarray.push({ id: x.id, name: x.name, blurb: x.blurb })
+                statsArray.push(x.stats)
+                tagsArray.push(x.tags)
+            })
+        }
+
+        function newChart(hp, atk, armor, atkrange, speed) {
+            let ctxPie = document.getElementById("Ability");
+            const labels = ["基礎血量", "基礎攻擊", "初始護甲", "攻擊距離", "基本移速"]
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Ability',
+                    data: [hp, atk, armor, atkrange, speed],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(255, 159, 64)',
+                        'rgb(255, 205, 86)',
+                        'rgb(75, 192, 192)',
+                        'rgb(54, 162, 235)'
+                    ],
+                    borderWidth: 2
+                }]
+            };
+            let pie = new Chart(ctxPie, {
+                type: 'bar',
+                data: data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                },
+            });
+            // return data
+        }
+    </script>
+</body>
+
+</html>
