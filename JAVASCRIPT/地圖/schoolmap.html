@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- initial-scale=1.0 指定畫面初始縮放比例為100%    -->
+    <!-- 使用視口元標記"width=device-width"會導致頁面縮小以適應超出視口邊界的內容。您可以通過添加到您的元標記來覆蓋此行為，"shrink-to-fit=no"如下所示。添加的值將阻止頁面縮放以適應視口。 -->
+    <!-- <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <!-- map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
+
+    <style>
+        .container-fluid>.row {
+            height: 100vh;
+        }
+
+        #map {
+            /* width: 50%; */
+            height: 100%;
+        }
+
+        .block {
+            border-radius: 50px;
+            min-height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid  h-100 text-center">
+        105學年度各級學校分布位置_大專院校.xls
+        <div class="row py-3 ">
+            <div class="col-6">
+                <div id="map"></div>
+            </div>
+            <div class="col-6 pt-5 h-100">
+                <div class="d-flex">
+                    <select id="country" class="form-control col-6"></select>
+                    <select id='district' class="form-control col-6"></select>
+                </div>
+                <div class="row pt-5">
+                    <div class="col-6 mx-auto pt-5 border border-primary block msg">
+                        <div class="name">學校名稱 : 國立政治大學</div>
+                        <br>
+                        <div class="level">學校級別 : 大專校院</div>
+                        <br>
+                        <div class="title">地區 : 臺北市 - 文山區</div>
+                        <br>
+                        <div class="tel">電話 : (02)29393091</div>
+                        <br>
+                        <div class="address">地址 : 臺北市文山區指南路二段64號</div>
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+                //array groupby方法註冊
+
+        Array.prototype.groupBy = function (prop) {
+            return this.reduce(function (groups, item) {
+                const val = item[prop]
+                groups[val] = groups[val] || []
+                groups[val].push(item)
+                return groups
+            }, {})
+        }
+        let map = L.map('map', {
+            center: [25.03416068163684, 121.56454962636319]
+            , zoom: 12
+        })
+        // 設定圖資來源
+        let layerUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        var layer = new L.TileLayer(layerUrl, {
+            minZoom: 8,
+            maxZoom: 19
+        })
+        // 把圖資加到地圖上
+        map.addLayer(layer)
+        //請求資料
+        let schoolDataRequest = axios.get('https://raw.githubusercontent.com/supoyu/FileStorage/main/school.JSON')
+        let areaDataRequest = axios.get('https://raw.githubusercontent.com/supoyu/FileStorage/main/%E5%8F%B0%E7%81%A3%E9%84%89%E9%8E%AE.JSON')
+        //台灣行政區的經緯度
+        //各行政人口的平均用水量
+        let areaData  //行政區 經緯度資料
+        let schoolData  = [] //學校資料
+        let markers = L.markerClusterGroup();
+        let name  = document.querySelector('.name');
+        let level  = document.querySelector('.level');
+        let title  = document.querySelector('.title');
+        let tel  = document.querySelector('.tel');
+        let address  = document.querySelector('.address');
+        let countrySelect  = document.querySelector('#country');
+        let districtSelect = document.querySelector('#district');
+        let CityArray = []
+
+
+
+        window.onload = function () {
+            Promise.all([areaDataRequest, schoolDataRequest])
+                // Promise.all([waterDataRequest,areaDataRequest ])
+                .then((res) => {
+                    let [areaRes, schoolData] = res
+                    areaData = areaRes.data
+                    schoolData = schoolData.data
+                    CityArray = areaData.groupBy( "City");
+                    //初始化下拉選單
+                    countrySelect = document.querySelector('#country');
+                    //注意加分號
+                    ['---請選擇---']
+                    .concat([...new Set(areaData.map(x => x.City))])
+                    .forEach(x => {
+                        const opt = document.createElement('option')
+                        opt.innerText = x
+                        opt.value = x == '---請選擇---' ? '' : x
+                        //opt.setAttribute("selected", "")
+                        countrySelect.appendChild(opt)
+                        })
+
+                        // //初始化下拉選單
+                    // districtSelect = document.querySelector('#district');
+                    // //注意加分號
+                    // ['請選擇']
+                    //     .concat([...new Set(areaData.map(x => x.District))])
+                    //     .forEach(x => {
+                        //         const opt = document.createElement('option')
+                        //         opt.innerText = x
+                        //         opt.value = x == '請選擇' ? '' : x
+                        
+                        //         districtSelect.appendChild(opt)
+                        //     })
+                        //初始化maker
+                       setMarker()
+                       schoolData.forEach((x,index) => {
+                        let data = schoolData[index]
+                        console.log(data)
+                        let marker = L.marker([data.N, data.E])
+                        // debugger
+                        // let avg = (data
+                        // .map(x => parseInt(x.TheDailyDomesticConsumptionOfWaterPerPerson))
+                        // .reduce((prev, curr) => prev + curr) / 12
+                        // ).toFixed(2)
+
+                        marker.bindPopup(`
+                        <h4> 學校名稱 : ${data.學校名稱}</h4>
+                        <p> 地址 : ${data.地址} <p>
+                            `)
+
+
+                        marker.addEventListener('click', function () {
+                                name.innerText ="學校名稱 : " + data.學校名稱
+                                level.innerText  = "學校級別 : " + data.學校級別
+                                title.innerText = "地區 : " + data.縣市別+ "-" + data.鄉鎮市區 
+                                tel.innerText = "電話 : " + data.電話
+                                address.innerText = "地址 : " + data.地址
+                        })
+                //             marker.addEventListener('click', function () {
+                //                 document.querySelector('strong').innerText = `${data[0].County} ${data[0].Town}`
+
+                markers.addLayer(marker);
+            })
+            map.addLayer(markers);    
+                    
+                })
+                districtSelect.disabled = true;  
+        }
+
+
+        function setMarker() {
+
+            schoolData.forEach((x,index) => {
+                        let data = schoolData[index]
+                        console.log(data)
+                        let marker = L.marker([data.N, data.E])
+                        debugger
+                        // let avg = (data
+                        // .map(x => parseInt(x.TheDailyDomesticConsumptionOfWaterPerPerson))
+                        // .reduce((prev, curr) => prev + curr) / 12
+                        // ).toFixed(2)
+
+                        marker.bindPopup(`
+                        <h4> 學校級別 : ${data.學校名稱}</h4>
+                        <p> 地址 : ${data.地址} 公升<p>
+                            `)
+
+
+
+                //             marker.addEventListener('click', function () {
+                //                 document.querySelector('strong').innerText = `${data[0].County} ${data[0].Town}`
+
+
+                //                 let tbody = document.querySelector('tbody')
+                //                 tbody.innerHTML = ""
+
+                //                 let waterTr = document.createElement('tr')
+                //                 let tagtr = document.createElement('tr')
+                //                 data.forEach(x => {
+                //                     let waterTd = document.createElement('td')
+                //                     waterTd.innerText = `${x.TheDailyDomesticConsumptionOfWaterPerPerson}`
+                //                 waterTr.appendChild(waterTd)
+
+                //                 let iconTd = document.createElement('td')
+                //                 let icon = document.createElement('i')
+                //                 icon.classList.add('fas', 'fa-circle')
+                //                 icon.style.color =
+                //                 parseInt(x.TheDailyDomesticConsumptionOfWaterPerPerson) > avg
+                //                 ? 'red' : 'green'
+                //                 iconTd.appendChild(icon)
+                //                 tagtr.appendChild(iconTd)
+                //             })
+                //             tbody.appendChild(waterTr)
+                //             tbody.appendChild(tagtr)
+                //         })
+                //         //測試用
+                //         // marker.addTo(map)
+                markers.addLayer(marker);
+            })
+            map.addLayer(markers);
+        }
+        
+
+        //City選項變更事件
+        countrySelect.addEventListener('change', function () {
+            let cityValue = countrySelect.selectedOptions[0].value;
+            let cityText = countrySelect.selectedOptions[0].text;
+            // debugger
+            //如果未選擇City則return
+            if (cityValue == '') {
+                districtSelect.length = 1;  //清空第二個下拉式選單,只保留第一個
+                districtSelect.disabled = true;            
+                msg.innerHTML = '';
+                return;
+            }
+
+            //清除並重新建立District <select>
+            districtSelect.disabled = false;
+            districtSelect.innerHTML = '';
+            let option0 = document.createElement('option');
+            option0.value = '';
+            option0.text = '---請選擇---';
+            districtSelect.add(option0, null);
+
+            if (this.value != '') {
+                let country = areaData.find(x => x.City == this.value)
+                map.setView([country.Lat, country.Lng], 12)
+            }
+            // let city = Object.keys
+            let districts = CityArray[cityText].map(x=>x.District)
+
+            districts.forEach((item, index) => {
+                let option1 = document.createElement('option');
+                option1.value = item;
+                option1.text = item;
+                districtSelect.add(option1);
+            });
+
+
+
+
+
+
+        })
+        districtSelect.addEventListener('change', function () {
+
+                if (this.value != '') {
+                    let country = areaData.find(x => x.District == this.value && x.City == countrySelect.value)
+                    map.setView([country.Lat, country.Lng], 14)
+
+                }
+            })
+
+
+
+            
+
+
+    </script>
+
+</body>
+
+</html>
